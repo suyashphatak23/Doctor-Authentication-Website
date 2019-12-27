@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <title>TrueHealth | Search a Doctor</title>
+    <main>
+        <div class="container">
+            <h1 class="display-1">Search a Doctor</h1>
+            <form method="Post" action="#" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="search" class="text-center" name="searchbox" placeholder="Search a Doctor by Name">
+                <br>
+                <input type="submit" class="btn btn-success p-2 m-1" name="search" value="Search">
+            </form>
+        </div>
+    </main>
+
+{% endblock%}
