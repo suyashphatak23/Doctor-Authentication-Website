@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'Home.apps.HomeConfig',
     'Register.apps.RegisterConfig',
     'Service.apps.ServiceConfig',
+    'Rules.apps.RulesConfig',
 )
 
 MIDDLEWARE = [

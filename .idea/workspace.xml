@@ -2,18 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db91c042-3469-428d-84e6-b4fdab723969" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Register/migrations/0002_delete_doctor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Service/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/doctors/PHOTO.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Rules/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Rules/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Rules/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Rules/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Rules/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Rules/templates/GovernmentRules.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Rules/templates/GovernmentWebsites.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Rules/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Rules/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Rules/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/base/imgs/GR_1.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/base/imgs/GR_2.JPG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Register/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Register/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Register/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Register/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Service/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Service/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service/templates/SearchDoc.html" beforeDir="false" afterPath="$PROJECT_DIR$/Service/templates/SearchDoc.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Service/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Service/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Home/templates/searchbox.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Truehealth/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Truehealth/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Truehealth/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Truehealth/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/base/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/base/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,18 +87,26 @@
       <option name="project" value="LOCAL" />
       <updated>1577448492823</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added search and new apps">
+      <created>1577529450210</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1577529450211</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="New Project Directory" />
-    <option name="LAST_COMMIT_MESSAGE" value="New Project Directory" />
+    <MESSAGE value="Added search and new apps" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added search and new apps" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="614" y="113" key="CommitChangelistDialog2" timestamp="1577448490183">
+    <state x="614" y="113" key="CommitChangelistDialog2" timestamp="1577529446551">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="614" y="113" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1577448490183" />
+    <state x="614" y="113" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1577529446551" />
   </component>
 </project>
