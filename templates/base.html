@@ -47,13 +47,13 @@
                             <a class="nav-link" href="">Home<span class="sr-only">(current)</span></a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="Search/SearchDoc">Search a Doctor</a>
+                            <a class="nav-link" href="Service/SearchDoctor">Search a Doctor</a>
                           </li>
                           <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administration</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="admin">Admin Login</a>
-                                <a class="dropdown-item" href="AdminPanel/NewAdmin">New Admin Registration</a>
+                                <a class="dropdown-item" href="Register/NewAdmin">New Admin Registration</a>
                             </div>
                           </li>
                            <li class="nav-item dropdown">
@@ -75,9 +75,10 @@
                               <a style="color:white;text-decoration:none;font-size:20px" href="Providers/logout">Logout</a>
                           </div>
                           {% else %}
-                            <form class="form-inline my-2 my-lg-0">
-                              <input class="form-control mr-sm-2" type="search" placeholder="Search a Doctor" aria-label="Search">
-                              <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+                            <form method="GET" action="Service/results" class="form-inline my-2 my-lg-0" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <input class="text-center" value="{{ request.GET.search }}" name="search" placeholder="Search a Doctor by Name">
+                                <button type="submit" class="btn btn-success p-2 m-1">Search</button>
                             </form>
                           {% endif %}
                       </div>
