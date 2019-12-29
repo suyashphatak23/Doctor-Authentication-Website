@@ -2,23 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db91c042-3469-428d-84e6-b4fdab723969" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Rules/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rules/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rules/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rules/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rules/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rules/templates/GovernmentRules.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rules/templates/GovernmentWebsites.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rules/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rules/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rules/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/base/imgs/GR_1.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/base/imgs/GR_2.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Contact/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Contact/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Contact/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Contact/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Contact/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Contact/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Contact/templates/Contact.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Contact/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Contact/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Contact/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Home/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Home/templates/searchbox.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Home/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Home/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Home/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Home/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Home/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Service/templates/SearchDoc.html" beforeDir="false" afterPath="$PROJECT_DIR$/Service/templates/SearchDoc.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Truehealth/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Truehealth/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Truehealth/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Truehealth/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/base/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/base/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +53,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DjangoProjectByGA" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -94,19 +97,35 @@
       <option name="project" value="LOCAL" />
       <updated>1577529450211</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added Rule Website">
+      <created>1577536138362</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1577536138362</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="New Project Directory" />
     <MESSAGE value="Added search and new apps" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added search and new apps" />
+    <MESSAGE value="Added Rule Website" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Rule Website" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="614" y="113" key="CommitChangelistDialog2" timestamp="1577529446551">
+    <state x="614" y="113" key="CommitChangelistDialog2" timestamp="1577536134304">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="614" y="113" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1577529446551" />
+    <state x="614" y="113" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1577536134304" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1577606815417">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1577606815417" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1577609200770">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1577609200770" />
   </component>
 </project>

@@ -3,7 +3,7 @@ from .models import Feedback, Complaint
 
 
 class FeedbackAdmin(admin.ModelAdmin):
-    list_display = ('name', 'Feedback', 'Ratings')
+    list_display = ('name', 'feedback', 'ratings')
 
 
 class ComplaintAdmin(admin.ModelAdmin):

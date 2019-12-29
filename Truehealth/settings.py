@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'Register.apps.RegisterConfig',
     'Service.apps.ServiceConfig',
     'Rules.apps.RulesConfig',
+    'Contact.apps.ContactConfig',
 )
 
 MIDDLEWARE = [

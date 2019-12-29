@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Feedback, Complaint
+from .forms import FeedbackForm, ComplaintForm
 
 
 def index(request):
@@ -9,5 +10,23 @@ def index(request):
                   {'feedback': feedback, 'complaints': complaints})
 
 
-def searchbox(request):
-    return render(request, 'searchbox.html')
+def feedback(request):
+    form = FeedbackForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+
+    context = {
+        'form': form
+    }
+    return render(request, "index.html", context)
+
+
+def complaint(request):
+    form = ComplaintForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+
+    context = {
+        'form': form
+    }
+    return render(request, 'index.html', context)

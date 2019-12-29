@@ -51,7 +51,7 @@
 
     <main role="contentinfo">
         <div class="jumbotron ">
-                <h1 class="display-2 text-center mb-4 text-success"><b> IDEA OF WEBSITE </b></h1>
+                <h1 class="display-2 text-center mb-4 text-success">IDEA OF WEBSITE</h1>
             <div class="card-deck">
               <div class="card">
                 <img src="{% static 'base/imgs/whatwedo.jpg'%}" class="card-img-top" alt="A man">
@@ -82,12 +82,41 @@
 
     <main role="feedback">
         <div class="container-fluid">
-            <h1>Feedback</h1>
-            <ul>
-                {%  for rate in feedback %}
-                    <li>{{ rate.name }} {{ rate.Feedback }} ({{ rate.Ratings }}/5)</li>
-                {% endfor %}
-            </ul>
+            <h1 class="display-2 text-center mb-4 text-success">FEEDBACK AREA</h1><br>
+            <div class="container">
+                <form method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
+                    <div class="input-group input-group-lg">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-lg">Name of Doctor </span>
+                        </div>
+                        <input type="text" name="name" maxlength="50" class="form-control" aria-label="Name of Doctor" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <br>
+                    <div class="input-group input-group-lg">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-lg">Feedback </span>
+                      </div>
+                      <textarea rows="5" cols="50" name="feedback" maxlength="200" class="form-control" aria-label="Feedback"></textarea>
+                    </div>
+                    <br>
+                    <div class="input-group input-group-lg">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-lg">Ratings </span>
+                        </div>
+                        <input type="number" name="rating" maxlength="1" class="form-control" aria-label="Rating" aria-describedby="inputGroup-sizing-sm">
+                    </div><br>
+                    <button type="submit" class="btn btn-success btn-lg p-2">Submit</button>
+                </form>
+            </div>
+            <div class="container">
+                <ul type="none">
+                    {%  for rate in feedback %}
+                        <li>Name: {{ rate.name }}</li>
+                        <li>Feedback: {{ rate.feedback }}</li>
+                        <li>Ratings: {{ rate.ratings }}/5</li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </main>
 
@@ -95,12 +124,49 @@
 
     <main role="complaint">
         <div class="container-fluid">
-            <h1>Complaints</h1>
-            <ul>
-                {%  for report in complaints %}
-                    <li>{{ report.name }} {{ report.complaint }} {{ report.date }}</li>
-                {% endfor %}
-            </ul>
+            <h1 class="display-2 text-center mb-4 text-success">COMPLAINT AREA</h1>
+            <div class="container">
+                <form method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
+                    <div class="input-group input-group-lg">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-lg">Name of Doctor </span>
+                        </div>
+                        <input type="text" name="name" maxlength="50" class="form-control" aria-label="Name of Doctor" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <br>
+                     <div class="input-group input-group-lg">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-lg">Name of Reporter </span>
+                        </div>
+                        <input type="text" name="reporter" maxlength="50" class="form-control" aria-label="Name of Reporter" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <br>
+                    <div class="input-group input-group-lg">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-lg">Complaint </span>
+                      </div>
+                      <textarea rows="5" cols="50" name="complaint" maxlength="200" class="form-control" aria-label="complaint"></textarea>
+                    </div>
+                    <br>
+                    <div class="input-group input-group-lg">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-lg">Date </span>
+                        </div>
+                        <input type="date" name="date"  class="form-control" aria-label="Date" aria-describedby="inputGroup-sizing-sm">
+                    </div><br>
+                    <button type="submit" class="btn btn-success btn-lg p-2">Submit</button>
+                 </form>
+            </div>
+
+            <div class="container">
+                <ul type="none">
+                    {%  for report in complaints %}
+                        <li>Name: {{ report.name }}  </li>
+                        <li>Complaint: {{ report.complaint }}</li>
+                        <li>Date: {{ report.date }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </main>
 
