@@ -3,9 +3,9 @@
 {% block content %}
     <title>TrueHealth | Search a Doctor</title>
     <main>
-        <div class="container">
-            <h1 class="display-1">Search a Doctor</h1>
-            <form method="GET" action="results" enctype="multipart/form-data">
+        <div class="container-fluid">
+            <h1 class="display-1 text-center">Search a Doctor</h1>
+            <form class="text-center" method="GET" action="results" enctype="multipart/form-data">
                 {% csrf_token %}
                 <input class="text-center" value="{{ request.GET.search }}" name="search" placeholder="Search a Doctor by Name">
                 <button type="submit" class="btn btn-success p-2 m-1">Search</button>
@@ -22,57 +22,53 @@
             <br>
             <br>
 
-            <div class="container">
+            <div class="container-fluid">
                 {% if sr %}
                     {% for k in sr %}
-                        <table border="0px" width="500px">
-                            <tr>
-                                <td>Name</td>
-                                <td>{{ k.name }}</td>
+                        <table  class="w-100 table-responsive-lg table-hover table-bordered text-center">
+                            <caption class="text-center text-bold text-danger" style="font-size:25px;">Search Result</caption>
+                            <tr class="bg-info">
+                              <th scope="col">Name</th>
+                              <th scope="col">Registration No.</th>
+                              <th scope="col">Information Year</th>
+                              <th scope="col">State Council Name</th>
+                              <th scope="col">Date of Birth</th>
+                              <th scope="col">Date of Registration</th>
+                              <th scope="col">Father's/Husband's Name</th>
+                              <th scope="col">Qualification Year</th>
+                              <th scope="col">University Name</th>
+                              <th scope="col">Contact No.</th>
+                              <th scope="col">Gender</th>
+                              <th scope="col">Ratings</th>
+                              <th scope="col">Location</th>
+                              <th scope="col">Additional Qualification 1</th>
+                              <th scope="col">Qualification Year</th>
+                              <th scope="col">University Name</th>
                             </tr>
-                            <tr>
-                                <td>Degree</td>
-                                <td>{{ k.degree }}</td>
-                            </tr>
-                            <tr>
-                                <td>Contact No.</td>
-                                <td>{{ k.contact }}</td>
-                            </tr>
-                            <tr>
-                                <td>Gender</td>
-                                <td>{{ k.gender }}</td>
-                            </tr>
-                            <tr>
-                                <td>Ratings</td>
-                                <td>{{ k.ratings }}</td>
-                            </tr>
-
-                            <tr>
-                                <td>Location</td>
-                                <td>{{ k.location }}</td>
-                            </tr>
-                            <tr>
-                                <td>Experience</td>
-                                <td>{{ k.experience }}</td>
-                            </tr>
-                            <tr>
-                                <td>Fees</td>
-                                <td>{{ k.fees }}</td>
-                            </tr>
-                            <tr>
-                                <td>Photo</td>
-                                <td>{{k.image}}</td>
-                            </tr>
-                            <tr>
-                                <td>Timings</td>
-                                <td>{{ k.stime }} TO {{k.etime}}</td>
-                            </tr>
-
+                            <tbody>
+                                <tr class="text-muted">
+                                  <th scope="row">{{ k.name }}</th>
+                                  <td>{{ k.rno }}</td>
+                                  <td>{{ k.infoyear }}</td>
+                                  <td>{{ k.council }}</td>
+                                  <td>{{ k.dob }}</td>
+                                  <td>{{ k.dor }}</td>
+                                  <td>{{ k.fathername }}</td>
+                                  <td>{{ k.qualifiedyear }}</td>
+                                  <td>{{ k.collegename }}</td>
+                                  <td>{{ k.contact }}</td>
+                                  <td>{{ k.gender }}</td>
+                                  <td>{{ k.ratings }}</td>
+                                  <td>{{ k.location }}</td>
+                                  <th scope="row">{{ k.Additionalq1 }}</th>
+                                  <td>{{ k.Ay1 }}</td>
+                                  <td>{{ k.c2 }}</td>
+                                </tr>
+                            </tbody>
                         </table>
                     {% endfor %}
                 {% endif %}
             </div>
-
         </div>
     </main>
 

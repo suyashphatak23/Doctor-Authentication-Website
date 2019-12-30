@@ -3,7 +3,7 @@ from .models import Doctor
 
 
 class DoctorAdmin(admin.ModelAdmin):
-    list_display = ('name', 'fees', 'degree', 'ratings', 'location', 'contact', 'gender')
+    list_display = ('name', 'rno', 'infoyear', 'ratings', 'location', 'contact', 'gender')
 
 
 admin.site.register(Doctor, DoctorAdmin)
