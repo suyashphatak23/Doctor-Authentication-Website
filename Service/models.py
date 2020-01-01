@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class Doctor(models.Model):
@@ -6,8 +7,8 @@ class Doctor(models.Model):
     rno = models.IntegerField(null=True)
     infoyear = models.IntegerField(null=True)
     council = models.CharField(max_length=300, null=True)
-    dob = models.DateField(null=True)
-    dor = models.DateField(null=True)
+    dob = models.DateField(default=timezone.now, null=True)
+    dor = models.DateField(default=timezone.now, null=True)
     fathername = models.CharField(max_length=200)
     qualifiedyear = models.IntegerField(null=True)
     collegename = models.CharField(max_length=400, null=True)

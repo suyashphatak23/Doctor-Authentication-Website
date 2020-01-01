@@ -5,29 +5,61 @@
     <main role="NewAdmin">
         <!-- ADMIN FORM -->
         <div class="container">
-            <h3 class="display-3">New Admin Registration</h3>
+            <h3 class="display-1 text-center">New Admin Registration</h3>
+            <br>
             <form action="register" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                <p>First Name: </p>
-                <input type="text" name="first_name" placeholder="First Name" maxlength="30" required>
-                <p>Last Name: </p>
-                <input type="text" name="last_name" placeholder="Last Name" maxlength="30" required>
-                <p>Email: </p>
-                <input type="email" name="email" placeholder="Enter Email Address..." maxlength="50" required>
-                <p>Username: </p>
-                <input type="text" name="username" placeholder="Enter Username..." maxlength="15" required>
-                <p>Password: </p>
-                <input type="password" name="password1" placeholder="Enter Password..." maxlength="15" required>
-                <p>Confirm Password: </p>
-                <input type="password" name="password2" placeholder="Confirm Password..."maxlength="15" required>
+                <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">First Name</span>
+                    </div>
+                    <input type="text" name="first_name" maxlength="50" class="form-control" aria-label="First Name" aria-describedby="inputGroup-sizing-sm" required>
+                </div>
                 <br>
-                <p> <input type="checkbox" name="acceptance" required>  I herby accept the Terms and Conditions given by TrueHealth and allow to share my information whenever it is needed.</p>
-                <button class="btn btn-success" type="submit" name="apply">Apply</button>
+                <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Last Name</span>
+                    </div>
+                    <input type="text" name="last_name" maxlength="50" class="form-control" aria-label="Last Name" aria-describedby="inputGroup-sizing-sm" required>
+                </div>
+                <br>
+                <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Email ID</span>
+                    </div>
+                    <input type="email" name="email" maxlength="50" class="form-control" aria-label="First Name" aria-describedby="inputGroup-sizing-sm" required>
+                </div>
+                <br>
+                <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Username</span>
+                    </div>
+                    <input type="text" name="username" maxlength="50" class="form-control" aria-label="Username" aria-describedby="inputGroup-sizing-sm" required>
+                </div>
+                <br>
+                <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Password</span>
+                    </div>
+                    <input type="text" name="password1" maxlength="50" class="form-control" aria-label="Password" aria-describedby="inputGroup-sizing-sm" required>
+                </div>
+                <br>
+                 <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Confirm Password</span>
+                    </div>
+                    <input type="text" name="password2" maxlength="50" class="form-control" aria-label="Confirm Password" aria-describedby="inputGroup-sizing-sm" required>
+                </div>
+                <br>
+                <p style="font-size:19px;font-weight: bold;" class="text-danger"> <input class="p-2 m-1" type="checkbox" name="acceptance" required>  I herby accept the Terms and Conditions given by TrueHealth and allow to share my information whenever it is needed.</p>
+                <div class="text-center">
+                    <button class="btn btn-success btn-lg" type="submit" name="apply">Apply</button>
+                </div>
             </form>
             <br>
             <h4><b>( Note:</b> If you want a <mark class="bg-warning">Staff Status</mark>, Please contact <b>Website Admin in Contact Page. )</b></h4>
             <br>
-            <a href="admin"><h3 class="display-4">Link To Login Page of Staff</h3></a>
+            <a href="admin"><h3 class="display-4 text-danger">Link To Login Page of Staff</h3></a>
         </div>
 
         <div class="text-center">

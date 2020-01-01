@@ -87,23 +87,23 @@
                 <form method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
                     <div class="input-group input-group-lg">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-lg">Name of Doctor </span>
+                            <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Name of Doctor </span>
                         </div>
                         <input type="text" name="name" maxlength="50" class="form-control" aria-label="Name of Doctor" aria-describedby="inputGroup-sizing-sm">
                     </div>
                     <br>
                     <div class="input-group input-group-lg">
                       <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-lg">Feedback </span>
+                        <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Feedback </span>
                       </div>
-                      <textarea rows="5" cols="50" name="feedback" maxlength="200" class="form-control" aria-label="Feedback"></textarea>
+                      <textarea rows="5" cols="50" name="feedback" maxlength="200" class="form-control" placeholder="In maximum 200 words" aria-label="Feedback"></textarea>
                     </div>
                     <br>
                     <div class="input-group input-group-lg">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-lg">Ratings </span>
+                            <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Ratings </span>
                         </div>
-                        <input type="number" name="rating" maxlength="1" class="form-control" aria-label="Rating" aria-describedby="inputGroup-sizing-sm">
+                        <input type="number" name="rating" maxlength="1" class="form-control" aria-label="Rating" placeholder="Out of 5" aria-describedby="inputGroup-sizing-sm">
                     </div><br>
                     <button type="submit" class="btn btn-success btn-lg p-2">Submit</button>
                 </form>
@@ -129,28 +129,28 @@
                 <form method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
                     <div class="input-group input-group-lg">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-lg">Name of Doctor </span>
+                            <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Name of Doctor </span>
                         </div>
                         <input type="text" name="name" maxlength="50" class="form-control" aria-label="Name of Doctor" aria-describedby="inputGroup-sizing-sm">
                     </div>
                     <br>
                      <div class="input-group input-group-lg">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-lg">Name of Reporter </span>
+                            <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Name of Reporter </span>
                         </div>
                         <input type="text" name="reporter" maxlength="50" class="form-control" aria-label="Name of Reporter" aria-describedby="inputGroup-sizing-sm">
                     </div>
                     <br>
                     <div class="input-group input-group-lg">
                       <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-lg">Complaint </span>
+                        <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Complaint </span>
                       </div>
-                      <textarea rows="5" cols="50" name="complaint" maxlength="200" class="form-control" aria-label="complaint"></textarea>
+                      <textarea rows="5" cols="50" name="complaint" maxlength="200" class="form-control" placeholder="In maximum 200 words" aria-label="complaint"></textarea>
                     </div>
                     <br>
                     <div class="input-group input-group-lg">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-lg">Date </span>
+                            <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Date </span>
                         </div>
                         <input type="date" name="date"  class="form-control" aria-label="Date" aria-describedby="inputGroup-sizing-sm">
                     </div><br>

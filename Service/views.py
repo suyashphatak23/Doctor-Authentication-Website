@@ -5,10 +5,18 @@ from django.contrib import messages
 
 
 def SearchDoctor(request):
-    return render(request, 'SearchDoc.html')
+    count = Doctor.objects.all().count()
+    context = {
+        'count': count
+    }
+    return render(request, 'SearchDoc.html', context)
 
 
 def Search(request):
+    count = Doctor.objects.all().count()
+    context = {
+        'count': count
+    }
     if request.method == 'GET':
         query = request.GET.get('search')
 
@@ -17,10 +25,10 @@ def Search(request):
                                            Q(location__icontains=query))
 
             if result:
-                return render(request, 'SearchDoc.html', {'sr': result})
+                return render(request, 'SearchDoc.html', {'sr': result}, context)
             else:
                 messages.error(request, 'Search Not Found in Records')
         else:
-            return redirect('SearchDoctor')
+            return redirect('SearchDoctor', context)
 
-    return render(request, 'SearchDoc.html')
+    return render(request, 'SearchDoc.html', context)

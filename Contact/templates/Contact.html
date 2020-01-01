@@ -5,12 +5,101 @@
     <main role="contact">
         <!-- CONTACT INFO -->
         <div class="container">
-            <h1 class="display-2 text-center">Contact Us</h1>
-            <img src="{% static 'base/imgs/Contact/Contactus-1.jpg'%}" alt="Contact Us" class="w-100">
-            <p><b><i>Address</i></b>: B4, Flat No. 19 / Dhanlaxmi Park , Right Bhusari Colony , Paud Road , Kothrud , Pune , Maharashtra , India</p>
-            <p><b><i>Mail Us: </i></b> suyashphatak@yahoo.com , suyashphatak@hotmail.com</p>
-            <p><b><i>Contact No.:</i></b> 8208041135</p>
-            <p><b><i>Last Updated:</i></b><b> 4 DECEMBER 2019</b></p>
+            <br>
+
+            <!-- Message  -->
+            <div class="container">
+                <h1 class="display-1 text-center">Contact Us</h1>
+                <br>
+                <form method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
+                    <div class="input-group input-group-lg">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Name</span>
+                        </div>
+                        <input type="text" name="name" maxlength="50" class="form-control" aria-label="Name" placeholder="Enter Your Name" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <br>
+                     <div class="input-group input-group-lg">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Email</span>
+                        </div>
+                        <input type="text" name="email" maxlength="50" class="form-control" aria-label="Email" placeholder="Enter Your Email Address" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <br>
+                    <div class="input-group input-group-lg">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Complaints or<br>Suggestions</span>
+                      </div>
+                      <textarea rows="5" cols="50" name="suggestion" maxlength="200" class="form-control" placeholder="In maximum 200 words" aria-label="Suggestions"></textarea>
+                    </div>
+                    <br>
+                    <div class="input-group input-group-lg">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Date</span>
+                        </div>
+                        <input type="date" name="date"  class="form-control" aria-label="Date" aria-describedby="inputGroup-sizing-sm">
+                    </div><br>
+                    <button type="submit" class="btn btn-success btn-lg p-2">Submit</button>
+                </form>
+            </div>
+            <br>
+
+             <div class="text-center">
+                {% for message in messages %}
+                <h3 class="display-4"><mark class="bg-danger" style="color:white">{{ message }}</mark></h3>
+                {% endfor %}
+            </div>
+
+
+
+            <!-- Info -->
+            <div class="container text-center">
+                <h1 class="display-1 text-center">Our Information</h1>
+                <br>
+                <p style="font-size:20px;"><b><i>Address</i></b>: B4, Flat No. 19 / Dhanlaxmi Park , Right Bhusari Colony , Paud Road , Kothrud , Pune , Maharashtra , India</p>
+                <p style="font-size:20px;"><b><i>Mail Us: </i></b> suyashphatakbackup@gmail.com</p>
+                <p style="font-size:20px;"><b><i>Contact No. :</i></b> 8208041135</p>
+                <p style="font-size:20px;"><b><i>Last Updated:</i></b><b> 1 January 2020</b></p>
+            </div>
+            <br>
+
+            <!-- Super Admin Request -->
+             <div class="container">
+                <h1 class="display-1 text-center">Contact Information for Staff Status</h1>
+                <br>
+                <form method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
+                    <div class="input-group input-group-lg">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Name</span>
+                        </div>
+                        <input type="text" name="name" maxlength="50" class="form-control" aria-label="Name" placeholder="Enter Your Name" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <br>
+                    <div class="input-group input-group-lg">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Staff Status</span>
+                      </div>
+                      <textarea rows="5" cols="50" name="permission" maxlength="200" class="form-control" placeholder="Enter Which Permissions You Want In Website" aria-label="permission"></textarea>
+                    </div>
+                    <br>
+                    <div class="input-group input-group-lg">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Aadhar No. </span>
+                        </div>
+                        <input type="number" name="aadhar"  class="form-control" aria-label="aadhar" placeholder="Enter Your Adhaar Number" maxlength="12" aria-describedby="inputGroup-sizing-sm">
+                    </div><br>
+                    <button type="submit" class="btn btn-success btn-lg p-2">Submit</button>
+                </form>
+            </div>
+
+            <br>
+
+             <div class="text-center">
+                {% for message in messages %}
+                <h3 class="display-4"><mark class="bg-danger" style="color:white">{{ message }}</mark></h3>
+                {% endfor %}
+            </div>
+
         </div>
     </main>
 {% endblock %}
