@@ -41,31 +41,39 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Password</span>
                     </div>
-                    <input type="text" name="password1" maxlength="50" class="form-control" aria-label="Password" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="password" name="password1" maxlength="50" class="form-control" aria-label="Password" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <br>
                  <div class="input-group input-group-lg">
                     <div class="input-group-prepend">
                         <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Confirm Password</span>
                     </div>
-                    <input type="text" name="password2" maxlength="50" class="form-control" aria-label="Confirm Password" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="password" name="password2" maxlength="50" class="form-control" aria-label="Confirm Password" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <br>
-                <p style="font-size:19px;font-weight: bold;" class="text-danger"> <input class="p-2 m-1" type="checkbox" name="acceptance" required>  I herby accept the Terms and Conditions given by TrueHealth and allow to share my information whenever it is needed.</p>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text bg-danger">
+                      <input type="checkbox">
+                    </div>
+                  </div>
+                  <input type="text" class="form-control bg-success text-white" value="I herby accept the Terms and Conditions given by TrueHealth and allow to share my information whenever it is needed." readonly required />
+                </div>
                 <div class="text-center">
                     <button class="btn btn-success btn-lg" type="submit" name="apply">Apply</button>
                 </div>
             </form>
+            <br>
+            <div class="text-center">
+                {% for message in messages %}
+                <h3 class="display-4"><mark class="bg-danger" style="color:white">{{ message }}</mark></h3>
+                {% endfor %}
+            </div>
             <br>
             <h4><b>( Note:</b> If you want a <mark class="bg-warning">Staff Status</mark>, Please contact <b>Website Admin in Contact Page. )</b></h4>
             <br>
             <a href="admin"><h3 class="display-4 text-danger">Link To Login Page of Staff</h3></a>
         </div>
 
-        <div class="text-center">
-            {% for message in messages %}
-            <h3 class="display-4"><mark class="bg-danger" style="color:white">{{ message }}</mark></h3>
-            {% endfor %}
-        </div>
     </main>
 {% endblock %}

@@ -26,9 +26,11 @@
             <br>
 
             <div class="text-center">
-                {% for message in messages %}
-                <h3 class="display-4"><mark class="bg-danger" style="color:white">{{ message }}</mark></h3>
-                {% endfor %}
+                {% if messages %}
+                    {% for message in messages %}
+                    <h3 class="display-4"><mark class="bg-danger" style="color:white">{{ message }}</mark></h3>
+                    {% endfor %}
+                {% endif %}
             </div>
 
             <br>
@@ -36,27 +38,26 @@
 
             <div class="container-fluid">
                 {% if sr %}
-                    {% for k in sr %}
-                        <table  class="w-100 table-responsive-lg table-hover table-bordered text-center">
-                            <caption class="text-center text-bold text-danger" style="font-size:25px;">Search Result</caption>
-                            <tr class="bg-info">
-                              <th scope="col">Name</th>
-                              <th scope="col">Registration No.</th>
-                              <th scope="col">Information Year</th>
-                              <th scope="col">State Council Name</th>
-                              <th scope="col">Date of Birth</th>
-                              <th scope="col">Date of Registration</th>
-                              <th scope="col">Father's/Husband's Name</th>
-                              <th scope="col">Qualification Year</th>
-                              <th scope="col">University Name</th>
-                              <th scope="col">Contact No.</th>
-                              <th scope="col">Gender</th>
-                              <th scope="col">Ratings</th>
-                              <th scope="col">Location</th>
-                              <th scope="col">Additional Qualification 1</th>
-                              <th scope="col">Qualification Year</th>
-                              <th scope="col">University Name</th>
-                            </tr>
+                    <table  class="w-100 table-responsive-lg table-hover table-bordered text-center">
+                        <tr class="bg-info">
+                          <th scope="col">Name</th>
+                          <th scope="col">Registration No.</th>
+                          <th scope="col">Information Year</th>
+                          <th scope="col">State Council Name</th>
+                          <th scope="col">Date of Birth</th>
+                          <th scope="col">Date of Registration</th>
+                          <th scope="col">Father's/Husband's Name</th>
+                          <th scope="col">Qualification Year</th>
+                          <th scope="col">University Name</th>
+                          <th scope="col">Contact No.</th>
+                          <th scope="col">Gender</th>
+                          <th scope="col">Ratings</th>
+                          <th scope="col">Location</th>
+                          <th scope="col">Additional Qualification 1</th>
+                          <th scope="col">Qualification Year</th>
+                          <th scope="col">University Name</th>
+                        </tr>
+                        {% for k in sr %}
                             <tbody class="bg-dark">
                                 <tr class="text-white">
                                   <th scope="row">{{ k.name }}</th>
@@ -77,8 +78,8 @@
                                   <td>{{ k.c2 }}</td>
                                 </tr>
                             </tbody>
-                        </table>
-                    {% endfor %}
+                        {% endfor %}
+                    </table>
                 {% endif %}
             </div>
         </div>

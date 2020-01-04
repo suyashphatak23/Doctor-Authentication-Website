@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <title>TrueHealth | Complaint</title>
+
+    <!-- COMPLAINTS-->
+    <br>
+
+    <main>
+        <div class="container-fluid">
+            <h1 class="display-2 text-center mb-4">COMPLAINT AREA</h1>
+            <div class="container">
+                <form method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
+                    <div class="input-group input-group-lg">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Name of Doctor </span>
+                        </div>
+                        <input type="text" name="name" maxlength="50" class="form-control" aria-label="Name of Doctor" placeholder="Full Name" aria-describedby="inputGroup-sizing-sm" required>
+                    </div>
+                    <br>
+                     <div class="input-group input-group-lg">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Name of Reporter </span>
+                        </div>
+                        <input type="text" name="reporter" maxlength="50" class="form-control" aria-label="Name of Reporter" placeholder="Full Name" aria-describedby="inputGroup-sizing-sm" required>
+                    </div>
+                    <br>
+                    <div class="input-group input-group-lg">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Complaint </span>
+                      </div>
+                      <textarea rows="5" cols="50" name="complaint" maxlength="200" class="form-control" placeholder="In maximum 200 words" aria-label="complaint" required></textarea>
+                    </div>
+                    <br>
+                    <div class="input-group input-group-lg">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Date </span>
+                        </div>
+                        <input type="date" name="date"  class="form-control" aria-label="Date" aria-describedby="inputGroup-sizing-sm" required>
+                    </div><br>
+                    <div class="container text-center">
+                        <input type="submit" class="btn btn-success btn-lg" value="Submit" name="apply"/>
+                    </div>
+                 </form>
+                <br>
+                 <div class="text-center">
+                    {% for message in messages %}
+                    <h3 class="display-4"><mark class="bg-danger" style="color:white">{{ message }}</mark></h3>
+                    {% endfor %}
+                 </div>
+            </div>
+
+        </div>
+    </main>
+    <br>
+
+    <div class="container">
+        <h1 class="display-1 text-center">PREVIOUS COMPLAINTS</h1>
+        <br>
+
+
+        {%  for report in complaints %}
+            {% if report.publish %}
+                <br>
+                <div class="container text-center p-2 bg-light m-1 rounded" style="font-size:20px;border:2px solid red;">
+                    <div class="container">
+                        <p>{{ report.complaint }}</p>
+                    </div>
+                    <div class="container">
+                        <p style="font-weight:bold;">- Dr. {{ report.name }}</p>
+                        <p>Date : {{ report.date }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+
+{% endblock %}
