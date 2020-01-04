@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .models import Feedback, Complaint
 from .forms import FeedbackForm, ComplaintForm
 
@@ -11,7 +11,7 @@ def feedback_form(request):
             instance = form.save()
             instance.save()
             messages.info(request, 'Feedback Submitted Successfully')
-            return render(request, 'feedback.html', )
+            return render(request, 'feedback.html')
     else:
         form = FeedbackForm()
 

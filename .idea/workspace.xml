@@ -1,28 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="db91c042-3469-428d-84e6-b4fdab723969" name="Default Changelist" comment="Added contact forms in contact pages and modified some templates">
-      <change afterPath="$PROJECT_DIR$/Contact/migrations/0002_auto_20200101_2340.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Contact/migrations/0003_remove_contact_date.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Home/migrations/0003_auto_20200102_1522.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Home/migrations/0004_auto_20200104_1309.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Home/templates/complaint.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Home/templates/feedback.html" afterDir="false" />
+    <list default="true" id="db91c042-3469-428d-84e6-b4fdab723969" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Contact/templates/adminrequest.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contact/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Contact/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contact/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Contact/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contact/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Contact/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Contact/templates/Contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/Contact/templates/Contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contact/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Contact/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Contact/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Contact/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Home/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Home/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Home/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Home/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Home/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Home/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Home/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Register/templates/NewAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/Register/templates/NewAdmin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service/templates/SearchDoc.html" beforeDir="false" afterPath="$PROJECT_DIR$/Service/templates/SearchDoc.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Service/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rules/templates/GovernmentRules.html" beforeDir="false" afterPath="$PROJECT_DIR$/Rules/templates/GovernmentRules.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rules/templates/GovernmentWebsites.html" beforeDir="false" afterPath="$PROJECT_DIR$/Rules/templates/GovernmentWebsites.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/base/imgs/complaint.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/base/imgs/complaint.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577880971835</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added Complaint and feedback page with publish button and updates search registry table with some decorations and etc.">
+      <created>1578126663296</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1578126663296</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -139,17 +135,18 @@
     <MESSAGE value="Added Contact and feedback and complaints text box" />
     <MESSAGE value="Added tables in searchbox" />
     <MESSAGE value="Added contact forms in contact pages and modified some templates" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added contact forms in contact pages and modified some templates" />
+    <MESSAGE value="Added Complaint and feedback page with publish button and updates search registry table with some decorations and etc." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Complaint and feedback page with publish button and updates search registry table with some decorations and etc." />
   </component>
   <component name="WindowStateProjectService">
     <state x="709" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1577865774910">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="709" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1577865774910" />
-    <state x="614" y="113" key="CommitChangelistDialog2" timestamp="1577900652716">
+    <state x="614" y="113" key="CommitChangelistDialog2" timestamp="1578126659686">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="614" y="113" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1577900652716" />
+    <state x="614" y="113" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578126659686" />
     <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1577961017587">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -1,27 +1,19 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .forms import ContactForm, SuperAdminForm
 from django.contrib import messages
 
 
 def contact(request):
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            result = form.save()
-            messages.info(request, "Saved Successfully")
-            return redirect(request, 'Contact.html', {'result': result})
-
-    else:
-        form = ContactForm()
+    form = ContactForm(request.POST)
+    if form.is_valid():
+        result = form.save()
+        result.save()
+        messages.info(request, "Saved Successfully")
+        return render(request, 'Contact.html')
 
     context = {
         'form': form
-
-
-
-        
     }
-
     return render(request, 'Contact.html', context)
 
 
@@ -31,7 +23,7 @@ def admin(request):
         if form.is_valid():
             result = form.save()
             messages.info(request, "Saved Successfully")
-            return redirect(request, 'Contact.html', {'result': result})
+            return render(request, 'adminrequest.html', {'result': result})
 
     else:
         form = SuperAdminForm()
@@ -40,4 +32,4 @@ def admin(request):
         'form': form
     }
 
-    return render(request, 'Contact.html', context)
+    return render(request, 'adminrequest.html', context)

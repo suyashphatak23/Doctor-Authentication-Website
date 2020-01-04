@@ -2,12 +2,13 @@
 {% load staticfiles %}
 
 {% block content %}
-    <main role="contact">
+    <title>TrueHealth | Contact Us</title>
+    <main>
         <!-- CONTACT INFO -->
         <div class="container">
             <br>
 
-            <!-- Message  -->
+             <!-- Message  -->
             <div class="container p-1">
                 <h1 class="display-1 text-center">Contact Us</h1>
                 <br>
@@ -23,7 +24,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Email</span>
                         </div>
-                        <input type="text" name="email" class="form-control" aria-label="Email" placeholder="Enter Your Email Address" aria-describedby="inputGroup-sizing-sm" required>
+                        <input type="email" name="email" class="form-control" aria-label="Email" placeholder="Enter Your Email Address" aria-describedby="inputGroup-sizing-sm" required>
                     </div>
                     <br>
                     <div class="input-group input-group-lg">
@@ -33,7 +34,9 @@
                       <textarea rows="5" cols="50" name="suggestion" class="form-control" placeholder="In maximum 200 words" aria-label="Suggestions" required></textarea>
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-success btn-lg p-2">Submit</button>
+                    <div class="container text-center">
+                        <button type="submit" class="btn btn-success btn-lg">Submit</button>
+                    </div>
                 </form>
             </div>
             <br>
@@ -44,11 +47,9 @@
                 {% endfor %}
             </div>
 
-
-
             <!-- Info -->
-            <div class="container text-center bg-info rounded p-1">
-                <h1 class="display-1 text-center">Our Information</h1>
+            <div class="container text-center bg-secondary rounded p-1" style="border:2px solid red">
+                <h1 class="display-1 text-center text-warning">Our Information</h1>
                 <br>
                 <p style="font-size:20px;"><b><i>Address</i></b>: Pune , Maharashtra , India</p>
                 <p style="font-size:20px;"><b><i>Mail Us: </i></b> suyashphatakbackup@gmail.com</p>
@@ -57,42 +58,11 @@
             </div>
             <br>
 
-            <!-- Super Admin Request-->
-             <div class="container p-1">
-                <h1 class="display-1 text-center">Staff Status Information</h1>
-                <br>
-                <form method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
-                    <div class="input-group input-group-lg">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Name</span>
-                        </div>
-                        <input type="text" name="name" maxlength="50" class="form-control" aria-label="Name" placeholder="Enter Your Name" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                    <br>
-                    <div class="input-group input-group-lg">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Staff Status</span>
-                      </div>
-                      <textarea rows="5" cols="50" name="permission" maxlength="200" class="form-control" placeholder="Enter Which Permissions You Want In Website" aria-label="permission"></textarea>
-                    </div>
-                    <br>
-                    <div class="input-group input-group-lg">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Aadhar No. </span>
-                        </div>
-                        <input type="number" name="aadhar"  class="form-control" aria-label="aadhar" placeholder="Enter Your Adhaar Number" maxlength="12" aria-describedby="inputGroup-sizing-sm">
-                    </div><br>
-                    <button type="submit" class="btn btn-success btn-lg p-2">Submit</button>
-                </form>
-            </div
-
-            <br>
-
-             <div class="text-center">
-                {% for message in messages %}
-                <h3 class="display-4"><mark class="bg-danger" style="color:white">{{ message }}</mark></h3>
-                {% endfor %}
+            <div class="container p-2 bg-info text-center rounded" style="border:2px solid yellow">
+                <h3 class="display-3 text-white">Admin Request Link</h3><br>
+                <a href="adminrequest" class="btn btn-success btn-lg">Click Here</a>
             </div>
+
 
         </div>
     </main>
