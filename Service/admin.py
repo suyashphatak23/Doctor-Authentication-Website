@@ -1,9 +1,8 @@
 from django.contrib import admin
 from .models import Doctor
+from import_export.admin import ImportExportModelAdmin
 
 
-class DoctorAdmin(admin.ModelAdmin):
-    list_display = ('name', 'rno', 'infoyear', 'ratings', 'location', 'contact', 'gender')
-
-
-admin.site.register(Doctor, DoctorAdmin)
+@admin.register(Doctor)
+class ViewAdmin(ImportExportModelAdmin):
+    pass

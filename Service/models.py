@@ -19,4 +19,3 @@ class Doctor(models.Model):
     location = models.TextField(max_length=600, null=True)
     contact = models.CharField(max_length=10, null=True)
     gender = models.CharField(max_length=10, null=True)
-    image = models.FileField(upload_to='doctors/', null=True, max_length=300)

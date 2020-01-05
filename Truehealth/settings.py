@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # 'registrations',
+    'import_export',
 
     # Local Apps
     'Home.apps.HomeConfig',

@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db91c042-3469-428d-84e6-b4fdab723969" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Contact/templates/adminrequest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Service/migrations/0006_remove_doctor_image.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contact/templates/Contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/Contact/templates/Contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contact/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Contact/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contact/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Contact/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Home/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Home/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rules/templates/GovernmentRules.html" beforeDir="false" afterPath="$PROJECT_DIR$/Rules/templates/GovernmentRules.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rules/templates/GovernmentWebsites.html" beforeDir="false" afterPath="$PROJECT_DIR$/Rules/templates/GovernmentWebsites.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/base/imgs/complaint.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/base/imgs/complaint.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Service/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Service/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Service/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Service/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Truehealth/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Truehealth/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/base/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/base/css/main.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578126663296</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Updated Home Page and other pages , added title icon to image.">
+      <created>1578132490581</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1578132490581</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -136,17 +139,18 @@
     <MESSAGE value="Added tables in searchbox" />
     <MESSAGE value="Added contact forms in contact pages and modified some templates" />
     <MESSAGE value="Added Complaint and feedback page with publish button and updates search registry table with some decorations and etc." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Complaint and feedback page with publish button and updates search registry table with some decorations and etc." />
+    <MESSAGE value="Updated Home Page and other pages , added title icon to image." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated Home Page and other pages , added title icon to image." />
   </component>
   <component name="WindowStateProjectService">
     <state x="709" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1577865774910">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="709" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1577865774910" />
-    <state x="614" y="113" key="CommitChangelistDialog2" timestamp="1578126659686">
+    <state x="614" y="113" key="CommitChangelistDialog2" timestamp="1578132487281">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="614" y="113" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578126659686" />
+    <state x="614" y="113" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578132487281" />
     <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1577961017587">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
