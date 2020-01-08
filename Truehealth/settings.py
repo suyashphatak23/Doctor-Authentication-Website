@@ -42,7 +42,7 @@ INSTALLED_APPS = (
     # Local Apps
     'Home.apps.HomeConfig',
     'Register.apps.RegisterConfig',
-    'Service.apps.ServiceConfig',
+    'Services.apps.ServicesConfig',
     'Rules.apps.RulesConfig',
     'Contact.apps.ContactConfig',
 )
@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'Truehealth.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Suyash',
+        'NAME': 'truehealth',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',

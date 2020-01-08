@@ -5,11 +5,7 @@ from django.contrib import messages
 
 
 def SearchDoctor(request):
-    count = Doctor.objects.all().count()
-    context = {
-        'count': count
-    }
-    return render(request, 'SearchDoc.html', context)
+    return render(request, 'SearchDoc.html')
 
 
 def Search(request):
@@ -21,8 +17,7 @@ def Search(request):
                                            Q(location__icontains=query))
 
             if result:
-                messages.info(request, 'Search Found')
-                count = Doctor.objects.all().count()
+                count = len(result)
                 return render(request, 'SearchDoc.html', {'sr': result, 'count': count},)
             else:
                 messages.error(request, 'Search Not Found in Records')
