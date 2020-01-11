@@ -75,9 +75,9 @@
                               <a style="color:white;text-decoration:none;font-size:20px" href="Providers/logout">Logout</a>
                           </div>
                           {% else %}
-                            <form method="GET" action="Service/results" class="form-inline my-2 my-lg-0" enctype="multipart/form-data">
+                            <form method="GET" action="Services/results" class="form-inline my-2 my-lg-0" enctype="multipart/form-data">
                                 {% csrf_token %}
-                                <input class="text-center rounded p-2 m-1" value="{{ request.GET.search }}" name="search" placeholder="Search a Doctor">
+                                <input class="text-center rounded p-2 m-1" name="search" placeholder="Search a Doctor">
                                 <button type="submit" class="btn btn-danger p-2 m-1">Search</button>
                             </form>
                           {% endif %}

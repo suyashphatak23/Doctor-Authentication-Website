@@ -12,7 +12,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Search a Doctor</span>
                     </div>
-                    <input type="text" name="search" maxlength="50" class="form-control" aria-label="Search a Doctor" aria-describedby="inputGroup-sizing-sm" placeholder="By Name or Location">
+                    <input id="autocomplete" autocomplete="on" type="text" name="search" maxlength="50" class="form-control" value="{{ request.GET.search }}" aria-label="Search a Doctor" aria-describedby="inputGroup-sizing-sm" placeholder="By Name or Location">
                 </div>
                 <div class="container p-2">
                     <button type="submit" class="btn btn-success btn-lg">Search</button>
@@ -55,29 +55,15 @@
                           <th scope="col">University Name</th>
                         </tr>
                         {% for k in sr %}
-                            <!--<tbody class="bg-dark">
+                            <tbody class="bg-dark">
                                 <tr class="text-white">
-                                  <th scope="row">{{ k.name }}</th>
-                                  <td>{{ k.r_number }}</td>
-                                  <td>{{ k.info_year }}</td>
-                                  <td>{{ k.council }}</td>
-                                  <td>{{ k.DOB }}</td>
-                                  <td>{{ k.DOR }}</td>
-                                  <td>{{ k.fathers_name }}</td>
-                                  <td>{{ k.qualified_year }}</td>
-                                  <td>{{ k.university }}</td>
+                                    <th scope="row"><a href="results/<int:doctor_id>"> {{ k.name }}</a></th>
                                   <td>{{ k.contact }}</td>
                                   <td>{{ k.gender }}</td>
                                   <td>{{ k.ratings }}</td>
                                   <td>{{ k.location }}</td>
-                                  <th scope="row">{{ k.AdditionalQualifications1 }}</th>
-                                  <td>{{ k.AdditionalQualifications1year1 }}</td>
-                                  <td>{{ k.university1 }}</td>
-                                  <th scope="row">{{ k.AdditionalQualifications2 }}</th>
-                                  <td>{{ k.AdditionalQualifications2year2 }}</td>
-                                  <td>{{ k.university2 }}</td>
                                 </tr>
-                            </tbody>-->
+                            </tbody>
                         {% endfor %}
                     </table>
                 {% endif %}

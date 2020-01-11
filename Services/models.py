@@ -2,9 +2,9 @@ from django.db import models
 from django.utils import timezone
 
 # Gender Drop-down
-Male = 'M'
-Female = 'F'
-Other = 'O'
+Male = 'Male'
+Female = 'Female'
+Other = 'Other'
 gender_choices = (
     (Male, 'Male'), (Female, 'Female')
 )

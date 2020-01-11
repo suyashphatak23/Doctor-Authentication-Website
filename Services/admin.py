@@ -10,7 +10,7 @@ class DoctorForm(forms.ModelForm):
         fields = ['name', 'ratings', 'location',
                   'contact', 'gender']
 
-    def clean(self):
+    '''def clean(self):
         registration_number = self.cleaned_data.get('registration_number')
         if len(registration_number) > 5 and len(registration_number) < 5:
             raise forms.ValidationError("5 Numbers compulsory")
@@ -35,9 +35,10 @@ class DoctorForm(forms.ModelForm):
         if len(contact) > 10 and len(contact) < 10:
             raise forms.ValidationError("4 Numbers compulsory")
 
-        return self.cleaned_data
+        return self.cleaned_data'''
 
 
 @admin.register(Doctor)
 class ViewAdmin(ImportExportModelAdmin):
     list_display = ['name', 'location', 'contact']
+    list_filter = ['location', 'ratings', 'gender']

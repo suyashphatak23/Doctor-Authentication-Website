@@ -18,9 +18,16 @@ def Search(request):
 
             if result:
                 count = len(result)
-                return render(request, 'SearchDoc.html', {'sr': result, 'count': count},)
+                return render(request, 'SearchDoc.html', {'sr': result, 'count': count}, )
             else:
                 messages.error(request, 'Search Not Found in Records')
         else:
             return redirect('SearchDoctor')
     return render(request, 'SearchDoc.html')
+
+
+def Detail_view(request, doctor_id):
+    context = {
+        'doctor': Doctor.objects.get(id=doctor_id),
+    }
+    return render(request, 'detail.html', context)
