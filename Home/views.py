@@ -10,7 +10,7 @@ def feedback_form(request):
         if form.is_valid():
             instance = form.save()
             instance.save()
-            messages.info(request, 'Feedback Submitted Successfully')
+            messages.info(request, '')
             return render(request, 'feedback.html')
     else:
         form = FeedbackForm()

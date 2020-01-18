@@ -19,13 +19,13 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
 
     </head>
-    <body background="{% static 'base/imgs/background.jpg' %}" style="background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
+    <body>
 
 
 
             <!-- TOP HEADER -->
 
-            <header role="Webname&Login" id="header-top">
+            <header id="header-top">
                 <div class="container-fluid">
                     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
                       <a class="navbar-brand" href="Home">
@@ -87,7 +87,7 @@
             </header>
 
 
-            <main role="content" >
+            <main>
                 <div class="container-fluid">
                     {% block content %}
                     {% endblock %}
@@ -99,7 +99,7 @@
 
          <!-- SOCIAL MEDIA SITES -->
 
-            <footer role="SocialMediaLinks">
+            <footer>
                 <div class="container-fluid text-center bg-dark p-2">
                     <h3 class="display-4" style="text-transform : uppercase;color:white;">visit Our Social Media Sites</h3>
                     <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
@@ -112,7 +112,7 @@
 
             <!-- MAIN FOOTER -->
 
-            <footer role="Finalfooter" id="footer">
+            <footer id="footer">
                 <div class="container-fluid">
                     <div class="row">
                       <div class="col-4 p-1" style="text-align:center;border-right: 1px dotted gray;">

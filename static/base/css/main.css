@@ -1,14 +1,8 @@
 {% load staticfiles %}
-body{
-     background-repeat: no-repeat;
-     background-attachment: fixed;
-     background-size: cover;
-}
 /* ICONS */
 .fa {
     padding: 30px;
     font-size: 30px;
-    width: 80px;
     text-align: center;
     text-decoration: none;
     margin: 5px 2px;
@@ -43,6 +37,11 @@ body{
   color: white;
 }
 
+/* Icon End */
+
+
+/* Banner Slider */
+
 .carousel-item{
    height: 80vh;
    min-height:300px;
@@ -66,6 +65,9 @@ body{
    line-height : 1.9;
    text-transform: capitalize;
 }
+
+/* Banner End*/
+
 .nav-link{
    font-size:20px;
 }

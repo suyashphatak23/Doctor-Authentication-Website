@@ -3,7 +3,7 @@
 {% block content %}
     <title>TrueHealth | Search a Doctor</title>
     <main>
-        <div class="container-fluid">
+        <div class="container">
             <h1 class="display-1 text-center">Search a Doctor</h1>
             <br>
             <form class="text-center" method="GET" action="results" enctype="multipart/form-data">
@@ -12,10 +12,8 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Search a Doctor</span>
                     </div>
-                    <input id="autocomplete" autocomplete="on" type="text" name="search" maxlength="50" class="form-control" value="{{ request.GET.search }}" aria-label="Search a Doctor" aria-describedby="inputGroup-sizing-sm" placeholder="By Name or Location">
-                </div>
-                <div class="container p-2">
-                    <button type="submit" class="btn btn-success btn-lg">Search</button>
+                    <input id="autocomplete" autocomplete="on" type="text" name="search" maxlength="50" class="form-control float-left" value="{{ request.GET.search }}" aria-label="Search a Doctor" aria-describedby="inputGroup-sizing-sm" placeholder="By Name or Location">
+                    <button type="submit" onclick="error()" class="btn btn-success btn-lg float-right ml-2">Search</button>
                 </div>
             </form>
 
@@ -24,48 +22,47 @@
                     {% for message in messages %}
                     <h3 class="display-4"><mark class="bg-danger" style="color:white">{{ message }}</mark></h3>
                     {% endfor %}
+
+                    <!--<script>
+                        function error(){
+                            alert("Search not found")
+                        }
+                    </script>-->
                 {% endif %}
             </div>
 
             <br>
             <br>
 
-            <div class="container-fluid">
+            <div class="container">
                 {% if sr %}
                     <br>
                     <h3 class="text-center"><b>{{ count }} doctor(s)</b> found</h3>
                      <br>
-                    <table  class="w-100 table-responsive-lg table-hover table-bordered text-center">
-                        <tr class="bg-info">
-                          <th scope="col">Name</th>
-                          <th scope="col">Registration No.</th>
-                          <th scope="col">Information Year</th>
-                          <th scope="col">State Council Name</th>
-                          <th scope="col">Date of Birth</th>
-                          <th scope="col">Date of Registration</th>
-                          <th scope="col">Father's/Husband's Name</th>
-                          <th scope="col">Qualification Year</th>
-                          <th scope="col">University Name</th>
-                          <th scope="col">Contact No.</th>
-                          <th scope="col">Gender</th>
-                          <th scope="col">Ratings</th>
-                          <th scope="col">Location</th>
-                          <th scope="col">Additional Qualification 1</th>
-                          <th scope="col">Qualification Year</th>
-                          <th scope="col">University Name</th>
-                        </tr>
-                        {% for k in sr %}
-                            <tbody class="bg-dark">
-                                <tr class="text-white">
-                                    <th scope="row"><a href="results/<int:doctor_id>"> {{ k.name }}</a></th>
-                                  <td>{{ k.contact }}</td>
-                                  <td>{{ k.gender }}</td>
-                                  <td>{{ k.ratings }}</td>
-                                  <td>{{ k.location }}</td>
-                                </tr>
-                            </tbody>
-                        {% endfor %}
-                    </table>
+                    {% for k in sr %}
+                         <div class="container border p-3 m-4" style="background: rgb(241,240,246);box-shadow: 5px 13px 8px #888888;">
+                            <div class="row m-1">
+                              <div class="col-sm-2">
+                                <img class="rounded" style="width:100px;height:100px;" src=" {{MEDIA_URL}} {{doctors.PHOTO}} " alt="Profile Picture">
+                              </div>
+                              <div class="col-sm-6">
+                                <div class="pl-2 pr-2 pb-2">
+                                  <p style="font-size:20px;"><a  href="results/<int:doctor_id>"><b>Dr. {{ k.name }} </b><span><i class="fa fa-check-square" style="font-size:18px;color:green;margin:1px;padding:0;"> Verified</i></span></a></p>
+                                  <p>Specializations in {{ k.Additional_Qualifications_2 }} from {{ k.Additional_Qualifications_2_year_2 }}</p>
+                                  <p>Registered in {{ k.Information_year }}</p>
+                                  <p>Graduated in {{ k.qualified_year }}</p>
+                                    <p><b>{{ k.additional_Qualifications_1 }}</b></p>
+                                </div>
+                              </div>
+                              <div class="col-sm-4 p-2" style="margin:0;padding:0;">
+                                <p><span class="p-3"><i class="fa fa-phone-square" style="font-size:24px;margin:0;padding:0;display:inline"></i></span> {{ k.contact }}</p>
+                                <p><span class="p-2"><i class="fa fa-male" style="font-size:24px;margin:0;padding:0;display:inline"></i>/<i class="fa fa-female" style="font-size:24px;margin:0;padding:0;display:inline"></i></span> {{ k.gender }}</p>
+                                <p><span class="p-3"><i class="fa fa-thumbs-o-up" style="font-size:24px;margin:0;padding:0;display:inline"></i></span> {{ k.ratings }}/5</p>
+                                <p><span class="pl-3 pr-4 pt-3 pb-3"><i class="fa fa-map-marker" style="font-size:24px;margin:0;padding:0;display:inline"></i></span> {{ k.location }}</p>
+                              </div>
+                            </div>
+                         </div>
+                    {% endfor %}
                 {% endif %}
             </div>
         </div>
