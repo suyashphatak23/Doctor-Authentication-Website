@@ -68,4 +68,61 @@
         </div>
     </main>
 
-{% endblock%}
+    <!-- Pagination -->
+
+    <div class="pagination">
+        <nav aria-label="pagination ">
+            {% if sr.has_other_pages %}
+              <ul class="pagination justify-content-center">
+                {% if sr.has_previous %}
+                  <li class="page-item"><a href="?page={{ sr.previous_page_number }}">&laquo;</a></li>
+                {% else %}
+                  <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+                {% endif %}
+                {% for i in sr.paginator.page_range %}
+                  {% if sr.number == i %}
+                    <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+                  {% else %}
+                  <li><a href="?page={{ i }}"><span class="page-link">{{ i }}</span></a></li>
+                  {% endif %}
+                {% endfor %}
+                {% if sr.has_next %}
+                  <li class="page-item"><a href="?page={{ sr.next_page_number }}"><span class="page-link">&raquo;</span></a></li>
+                {% else %}
+                  <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+                {% endif %}
+              </ul>
+            {% endif %}
+        </nav>
+        <!--
+        {% if sr.has_previous %}
+            <a class="" href="?page=1">
+                <<
+            </a>
+
+            <a class="" href="?page={{ sr.previous_page_number }}">
+                <
+            </a>
+
+        {% endif %}
+        {% for num in sr.paginator.page_range %}
+            {% if sr.number == num %}
+                <strong> {{ num }} </strong>
+            {% elif num > sr.number|add:'-3' and  num < sr.number|add:'3' %}
+                {{ num }}
+            {% endif %}
+        {% endfor %}
+
+        {% if sr.has_next %}
+            <a class="" href="?page={{ sr.next_page_number }}">
+                 >>
+            </a>
+
+            <a class="" href="?page={{ sr.paginator.next_page }}">
+                 >
+            </a>
+
+        {% endif %}-->
+    </div>
+
+{% endblock %}

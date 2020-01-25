@@ -38,7 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     # 'registrations',
     'import_export',
-
+    'bootstrap_pagination',
+    
     # Local Apps
     'Home.apps.HomeConfig',
     'Register.apps.RegisterConfig',
