@@ -1,0 +1,32 @@
+name: Jekyll site CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build the site in the jekyll/builder container
+      run: |
+        docker run \
+        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+        jekyll/builder:latest /bin/bash -c "chmod 777 /srv/jekyll && jekyll build --future"
+
+-name: Make Migration Action
+uses: creyD/makemigrations_action@v1.0
+with:
+  # Commit message
+  commit_message: # optional, default is Added Django Migration
+  # Commit options
+  commit_options: # optional
+  # File pattern used for "git add"
+  file_pattern: # optional, default is *
+  # Path for the repositories 'requirements.txt', by default only Django is installed
+  dependencypath: # optional, default is requirements.txt
+  # Branch which the changes are merged to
+  branch: 
+  # Path to your manage.py file. Please provide it with your path as "PATH/manage.py".
+  managepath: 
