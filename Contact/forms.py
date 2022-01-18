@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Contact, SuperAdmin
+from .models import Contact
 
 
 class ContactForm(forms.ModelForm):
@@ -8,12 +8,4 @@ class ContactForm(forms.ModelForm):
         model = Contact
         fields = [
             'name', 'email', 'suggestion'
-        ]
-
-
-class SuperAdminForm(forms.ModelForm):
-    class Meta:
-        model = SuperAdmin
-        fields = [
-            'name', 'permission', 'aadhar'
         ]

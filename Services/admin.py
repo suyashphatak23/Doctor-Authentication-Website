@@ -1,11 +1,17 @@
 from django.contrib import admin
-from .models import Doctor
-from django import forms
+from .models import Doctor, AdditionalInfo
 
 
-class DoctorForm(forms.ModelForm):
+class AdditionalInfoAdmin(admin.StackedInline):
+    model = AdditionalInfo
+
+
+class DoctorAdmin(admin.ModelAdmin):
+    inlines = [AdditionalInfoAdmin]
+    list_display = ('registration_number', 'name', 'ratings')
+
     class Meta:
         model = Doctor
-        fields = ['name', 'ratings', 'location',
-                  'contact', 'gender']
+
+admin.site.register(Doctor, DoctorAdmin)
 

@@ -21,10 +21,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'registrations',
     # Local Apps
     'Home.apps.HomeConfig',
-    'Register.apps.RegisterConfig',
     'Services.apps.ServicesConfig',
     'Rules.apps.RulesConfig',
     'Contact.apps.ContactConfig',
