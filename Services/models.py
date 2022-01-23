@@ -35,7 +35,7 @@ class Doctor(models.Model):
     university = models.CharField(max_length=400, null=True)
     max_qualification = models.CharField(max_length=250, null=False, default="M.B.B.S.")
     ratings = models.FloatField(max_length=1, null=False, default=1)
-    image = models.FileField(upload_to='Doctors/', null=False, max_length=300)
+    image = models.ImageField(upload_to='Doctors/', null=False, max_length=300)
 
     def _str_(self):
         return str(self.registration_number)

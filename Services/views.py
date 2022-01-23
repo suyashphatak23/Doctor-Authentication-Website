@@ -2,14 +2,10 @@ from django.db.models import Q
 from .models import Doctor
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.paginator import Paginator
 
 
 def SearchDoctor(request):
-    return render(request, 'SearchDoc.html')
-
-
-def Search(request):
     if request.method == 'GET':
         query = request.GET.get('search')
 
@@ -22,17 +18,24 @@ def Search(request):
                 page = request.GET.get('page')
                 result = paginator.get_page(page)
                 page = 2
-                return render(request, 'SearchDoc.html', {'sr': result, 'count': count, page: 'page'})
+                context = {
+                    'sr': result,
+                    'count': count,
+                    'page': page,
+                }
+                return render(request, 'SearchDoc.html', context)
             else:
                 messages.error(request, 'Search Not Found in Records')
         else:
-            return redirect('SearchDoctor')
+            return redirect('SearchPage')
 
+
+def SearchPage(request):
     return render(request, 'SearchDoc.html')
 
 
 def Detail_view(request, doctor_id):
     context = {
-        'doctor': Doctor.objects.get(id=doctor_id),
+        'doctor': Doctor.objects.get(registration_number=doctor_id),
     }
     return render(request, 'detail.html', context)

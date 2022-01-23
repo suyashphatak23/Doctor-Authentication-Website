@@ -1,14 +1,9 @@
 from django.urls import path
 from . import views
-from Truehealth import settings
-from django.conf.urls.static import static
 
 urlpatterns = [
-    path('SearchDoctor', views.SearchDoctor, name='SearchDoctor'),
-    path('results', views.Search, name='search'),
-    path('results/<int:doctor_id>', views.Detail_view, name='Detail_View'),
+    path('search', views.SearchDoctor, name='home_search'),
+    path('search_page', views.SearchPage, name="SearchPage"),
+    path('search_doctor', views.SearchDoctor, name='SearchDoctor'),
+    path('doctor/<int:doctor_id>/', views.Detail_view, name='detailed_view'),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
