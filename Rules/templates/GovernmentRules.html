@@ -1,47 +1,188 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-     <title>TrueHealth | Government Rules</title>
+<title>TrueHealth | Government Rules</title>
+<style type="text/css">
+     @font-face {
+        font-family: GoogleSans-Regular;
+        src: url('{% static "fonts/ProductSans-Regular.ttf" %}'); 
+    }
 
-    <main>
-        <div class="container">
-            <h1 class="display-1 text-center">LINKS FOR RULE BOOKS</h1>
-            <br>
-            <div class="container">
-                <h3 class="text-center bg-dark text-white p-2 rounded" style="border:2px solid red"> Ministry of Health & Family Welfare Acts & Regulations </h3>
-                <img src="{% static 'imgs/GR_1.jpg' %}" class="w-100 img-thumbnail" alt="Mohfw">
-                <br>
-                <h3 class="text-center bg-success p-2 rounded" style="border:2px solid black"><a class="text-white" href="https://mohfw.gov.in/acts-rules-and-standards-health-sector/acts">Link: MOHFW</a></h3>
-                <br>
-                <h3 class="text-center bg-dark text-white p-2 rounded" style="border:2px solid red">Indian Pharmaceutical Association Regulation & Guidelines</h3>
-                <img src="{% static 'imgs/GR_2.jpg' %}" class="w-100 img-thumbnail" alt="IPARG">
-                <br>
-                <h3 class="text-center bg-success p-2 rounded" style="border:2px solid black"><a class="text-white" href="https://ipapharma.org/portfolio/regulations-and-guidelines/">Link: IPA</a></h3>
+    @font-face {
+        font-family: GoogleSans-Light;
+        src: url('{% static "fonts/ProductSans-Light.ttf" %}'); 
+    }
+
+    #rules .container{
+        padding: 40px;
+        font-family: GoogleSans-Regular, 'Open Sans', sans-serif;
+    }
+
+    .title{
+        text-align: center;
+        font-family: GoogleSans-Regular, 'Open Sans', sans-serif;
+    }
+
+    .heading{
+        font-size: 2.7rem;
+        letter-spacing: -.03125rem;
+        line-height: 4.0625rem;
+        -webkit-font-smoothing: antialiased;
+        margin: 20px auto;
+    }
+
+    .sub-heading{
+        font-size: 1.5625rem;
+        line-height: 2.0625rem;
+        -webkit-font-smoothing: antialiased;
+        color: #5f6368;
+        letter-spacing: .03125rem;
+        font-weight: 400;
+        transition: 0.2s;
+    }
+
+
+    .website-row{
+        margin: 50px 0;
+    }
+
+    .website-col{
+        text-align: center;
+        padding: 0 25px;
+    }
+
+    .website-image img{
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        box-shadow: 5px 10px 18px #888888;
+    }
+
+    .website-desc{
+        font-family: GoogleSans-Light;
+        padding: 32px 0;
+    }
+
+    .website-heading{
+        font-size: 1.5625rem;
+        line-height: 2.0625rem;
+        font-weight: bold;
+        margin-bottom: 22px;
+        -webkit-font-smoothing: antialiased;
+        color: #202124;
+        letter-spacing: 0;
+    }
+
+    .website-link a{
+        font-size: 1rem;
+        line-height: 1.625rem;
+        text-decoration: none;
+        font-weight: bold;
+        -webkit-font-smoothing: antialiased;
+        color: #1a73e8;
+        letter-spacing: .03125rem;
+    }
+
+    .website-link a:hover{
+        color: darkblue;
+    }
+
+    .rules-iframe iframe{
+        width: 100%;
+        min-height: 70em;
+        border-radius: 5px;
+        box-shadow: 5px 10px 18px #888888;
+    }
+
+    .rules-heading{
+        font-size: 1.5625rem;
+        line-height: 2.0625rem;
+        font-weight: bold;
+        margin-bottom: 22px;
+        -webkit-font-smoothing: antialiased;
+        color: #202124;
+        letter-spacing: 0;
+        text-align: center;
+    }
+</style>
+
+<section for="Rules" id="rules">
+    <div class="container title">
+        <h1 class="heading">Official Rules of Government</h1>
+        <p class="sub-heading">
+            Rulebooks & Records
+        </p>
+    </div>
+
+    <div class="container">
+        <div class="row website-row">
+            <div class="col-md-6 website-col">
+                <div class="website-image">
+                   <img src="{% static 'imgs/GR_1.jpg' %}" alt="Mohfw">
+                </div>
+                <div class="website-desc">
+                    <h3 class="website-heading">Ministry of Health & Family Welfare Acts & Regulations </h3>
+                    <p class="website-link">
+                        <a href="https://mohfw.gov.in/acts-rules-and-standards-health-sector/acts" target="_blank">
+                            Learn more about Acts & Regulations
+                        </a>
+                    </p>
+                </div>
             </div>
-
-            <br>
-            <div class="container p-1 rounded" style="border: 2px solid black"></div>
-            <br>
-
-            <h1 class="display-1 text-center">RULE PDFS</h1>
-            <br>
-            <div class="container">
-                <h3 class="text-center bg-dark text-white p-2 rounded" style="border:2px solid red">Indian Public Health Standards Guidelines for District Hospitals </h3>
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe src="{% static 'pdfs/District_Hospital.pdf'%}" class="embed-responsive-item"></iframe>
+            <div class="col-md-6 website-col">
+                <div class="website-image">
+                   <img src="{% static 'imgs/GR_2.jpg' %}" alt="IPARG"> 
                 </div>
-                <br>
-                <h3 class="text-center bg-dark text-white p-2 rounded" style="border:2px solid red">Indian Medical Council Regulations</h3>
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe src="{% static 'pdfs/Ethics-Regulations-2002.pdf'%}"class="embed-responsive-item"></iframe>
+                <div class="website-desc">
+                    <h3 class="website-heading">Indian Pharmaceutical Association Regulation & Guidelines</h3>
+                    <p class="website-link">
+                        <a href="https://ipapharma.org/portfolio/regulations-and-guidelines/" target="_blank">
+                            Learn more about Guidelines
+                        </a>
+                    </p>
                 </div>
-                <br>
-                <h3 class="text-center bg-dark text-white p-2 rounded" style="border:2px solid red">The All India Services Rules </h3>
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe src="{% static 'pdfs/Revised_AIS_Rule_Vol_I_Rule_06.pdf'%}" class="embed-responsive-item"></iframe>
-                </div>
-                <br>
-             </div>
+            </div>
         </div>
-    </main>
+    </div>
+
+    <div class="container title" style="padding-top: 0">
+        <h1 class="heading">Few Rule Books</h1>
+        <p class="sub-heading">
+            Referenced From Official Websites
+        </p>
+    </div>
+
+    <div class="container">
+        <div class="website-desc">
+            <h3 class="rules-heading">
+                Indian Public Health Standards Guidelines for District Hospitals
+            </h3>
+        </div>
+        <div class="rules-iframe">
+            <iframe src="{% static 'pdfs/District_Hospital.pdf'%}"></iframe>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="website-desc">
+            <h3 class="rules-heading">
+                Indian Medical Council Regulations
+            </h3>
+        </div>
+        <div class="rules-iframe">
+            <iframe src="{% static 'pdfs/Ethics-Regulations-2002.pdf'%}"></iframe>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="website-desc">
+            <h3 class="rules-heading">
+                The All India Services Rules
+            </h3>
+        </div>
+        <div class="rules-iframe">
+            <iframe src="{% static 'pdfs/Revised_AIS_Rule_Vol_I_Rule_06.pdf'%}"></iframe>
+        </div>
+    </div>
+</section>
 {% endblock %}
