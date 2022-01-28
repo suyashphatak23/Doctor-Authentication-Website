@@ -8,7 +8,7 @@ class AdditionalInfoAdmin(admin.StackedInline):
 
 class DoctorAdmin(admin.ModelAdmin):
     inlines = [AdditionalInfoAdmin]
-    list_display = ('registration_number', 'name', 'ratings')
+    list_display = ('registration_number', 'name')
 
     class Meta:
         model = Doctor

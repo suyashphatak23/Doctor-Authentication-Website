@@ -1,142 +1,239 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <title>TrueHealth | Search a Doctor</title>
-    <main>
-        <div class="container text-center" id="contact-heading">
-        <h1>Contact</h1>
+<title>TrueHealth | Search a Doctor</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">  
+<style type="text/css">
+    @font-face {
+        font-family: GoogleSans-Regular;
+        src: url('{% static "fonts/ProductSans-Regular.ttf" %}'); 
+    }
+
+    #search-heading{
+        font-size: 54px;
+        letter-spacing: -.5px;
+        line-height: 64px;
+        font-family: GoogleSans-Regular;
+        webkit-font-smoothing: antialiased;
+        color: #202124;
+        font-weight: 700;
+        text-rendering: optimizeLegibility;
+        padding: 32px;
+        margin: 15px 0 20px 0;
+    }
+
+    #search form{
+        width: 100%;
+        max-width: 790px;
+        margin: auto;
+    }
+
+    .basic-search {
+        box-shadow: 0px 8px 20px 0px rgb(0 0 0 / 15%);
+        overflow: hidden;
+        border-radius: 34px;
+        margin-bottom: 5px;
+    }
+
+    .input-field {
+        width: 100%;
+        position: relative;
+        color: #fff;
+    }
+
+    .input-field input {
+        height: 100%;
+        border: 0;
+        display: block;
+        width: 100%;
+        padding: 10px 80px 10px 40px;
+        font-size: 18px;
+        height: 70px;
+        color: #000;
+        background-color: #2f4353;
+        background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%);
+        font-family: GoogleSans-Regular, 'Open Sans', sans-serif;
+        line-height: 1.15;
+    }
+
+    .input-field input::-webkit-input-placeholder {
+        color: #000;
+        font-size: 18px;
+        font-weight: 400;
+    }
+
+    .input-field input:hover, .input-field input:focus {
+        box-shadow: none;
+        outline: 0;
+    }   
+
+    .input-field .icon-wrap {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        width: 60px;
+        height: 100%;
+    }
+
+    .icon-wrap svg {
+        width: 34px;
+        height: 34px;
+        fill: #fff;
+    }
+
+    .search-btn{
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .search-btn .btn-search {
+        min-width: 110px;
+        height: 50px;
+        padding: 0 15px;
+        background: 
+            linear-gradient(to right, #2c6dd5 0%, #2c6dd5 28%, #ff4b5a 91%, #ff4b5a 100%);
+        white-space: nowrap;
+        border-radius: 50px;
+        font-size: 18px;
+        font-weight: 400;
+        color: #fff;
+        transition: all .2s ease-out, color .2s ease-out;
+        border: 0;
+        cursor: pointer;
+        font-weight: 400;
+        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
+        z-index: 0;
+        position: relative;
+        font-family: GoogleSans-Regular, "Open Sans", sans-serif;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .search-btn .btn-search:before {
+        border-radius: inherit;
+        background: linear-gradient(45deg, #ff4b5a 0%, #ff4b5a 28%, #2c6dd5 91%, #2c6dd5 100%);
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        width: 100%;
+        z-index: -1;
+        transition: all .2s ease-out, color .2s ease-out;
+    }
+
+    .search-btn .btn-search:hover::before {
+        opacity: 1;
+    }
+
+    .search-btn .btn-search:focus {
+        outline: 0;
+        box-shadow: none;
+    }
+
+    .ui-autocomplete
+    {
+        cursor: pointer;
+        position: absolute;
+        padding: 10px 60px 10px 40px;
+        border-radius: 30px;
+        font-family: GoogleSans-Regular, 'Open Sans',sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+    }
+
+    .ui-menu-item .ui-menu-item-wrapper.ui-state-active {
+        border: none;
+        background: transparent;
+        color: #000;
+        cursor: pointer;
+    }
+</style>
+
+
+<section for="Search" id="search">
+    <div class="container text-center" id="search-heading">
+        <h1>Search</h1>
     </div>
 
-        
-        <div class="container">
-            <h1 class="display-1 text-center">Search a Doctor</h1>
-            <br>
-            <form class="text-center" method="GET" action="{% url 'SearchDoctor' %}">
-                {% csrf_token %}
-               <div class="input-group input-group-lg container">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Search a Doctor</span>
+    <div class="container search-box" style="width: 100%;">
+        <form method="GET" action="{% url 'SearchDoctor' %}">
+            {% csrf_token %}
+            <div class="basic-search">
+                <div class="input-field">
+                    <input id="auto" type="text" name="search" placeholder="Type Name to Search" {% if query %} value='{{ query }}' {% endif %} required />
+                    <div class="icon-wrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99    5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                        </svg>
                     </div>
-                    <input id="autocomplete" autocomplete="on" type="text" name="search" maxlength="50" class="form-control float-left" value="{{ request.GET.search }}" aria-label="Search a Doctor" aria-describedby="inputGroup-sizing-sm" placeholder="By Name or Location">
-                    <button type="submit" onclick="error()" class="btn btn-success btn-lg float-right ml-2">Search</button>
                 </div>
-            </form>
-
-            <div class="text-center">
-                {% if messages %}
-                    {% for message in messages %}
-                    <h3 class="display-4"><mark class="bg-danger" style="color:white">{{ message }}</mark></h3>
-                    {% endfor %}
-
-                    <!--<script>
-                        function error(){
-                            alert("Search not found")
-                        }
-                    </script>-->
-                {% endif %}
             </div>
-
-            <br>
-            <br>
-
-            <div class="container">
-                {% if sr %}
-                    <br>
-                    <h3 class="text-center"><b>{{ count }} doctor(s)</b> found</h3>
-                     <br>
-                    {% for result in sr %}
-                         <div class="container border p-3 m-4" style="background: rgb(241,240,246);box-shadow: 5px 13px 8px #888888;">
-                            <div class="row m-1">
-                              <div class="col-sm-2">
-                                <img style="width:50px;height:auto;" src="{{ result.image.url }} " alt="Profile Picture">
-                              </div>
-                              <div class="col-sm-6">
-                                <div class="pl-2 pr-2 pb-2">
-                                  <p style="font-size:20px;">
-                                        <a href="{% url 'detailed_view' result.registration_number %}">
-                                            <b>Dr. {{ result.name }} </b>
-                                            <span>
-                                                <i class="fa fa-check-square" style="font-size:18px;color:green;margin:1px;padding:0;"> 
-                                                    Verified
-                                                </i>
-                                            </span>
-                                        </a>
-                                    </p>
-                                  <p>Specializations in {{ result.Additional_Qualifications_2 }} from {{ result.Additional_Qualifications_2_year_2 }}</p>
-                                  <p>Registered in {{ result.Information_year }}</p>
-                                  <p>Graduated in {{ result.qualified_year }}</p>
-                                    <p><b>{{ result.additional_Qualifications_1 }}</b></p>
-                                </div>
-                              </div>
-                              <div class="col-sm-4 p-2" style="margin:0;padding:0;">
-                                <p><span class="p-3"><i class="fa fa-phone-square" style="font-size:24px;margin:0;padding:0;display:inline"></i></span> {{ result.contact }}</p>
-                                <p><span class="p-2"><i class="fa fa-male" style="font-size:24px;margin:0;padding:0;display:inline"></i>/<i class="fa fa-female" style="font-size:24px;margin:0;padding:0;display:inline"></i></span> {{ result.gender }}</p>
-                                <p><span class="p-3"><i class="fa fa-thumbs-o-up" style="font-size:24px;margin:0;padding:0;display:inline"></i></span> {{ result.ratings }}/5</p>
-                                <p><span class="pl-3 pr-4 pt-3 pb-3"><i class="fa fa-map-marker" style="font-size:24px;margin:0;padding:0;display:inline"></i></span> {{ result.location }}</p>
-                              </div>
-                            </div>
-                         </div>
-                    {% endfor %}
-                {% endif %}
+            <div class="search-btn">
+                <input type="submit" class="btn-search" value="Search">
             </div>
-        </div>
-    </main>
-
-    <!-- Pagination -->
-
-    <div class="pagination">
-        <nav aria-label="pagination ">
-            {% if sr.has_other_pages %}
-              <ul class="pagination justify-content-center">
-                {% if sr.has_previous %}
-                  <li class="page-item"><a href="?page={{ sr.previous_page_number }}">&laquo;</a></li>
-                {% else %}
-                  <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
-                {% endif %}
-                {% for i in sr.paginator.page_range %}
-                  {% if sr.number == i %}
-                    <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
-                  {% else %}
-                  <li><a href="?page={{ i }}"><span class="page-link">{{ i }}</span></a></li>
-                  {% endif %}
-                {% endfor %}
-                {% if sr.has_next %}
-                  <li class="page-item"><a href="?page={{ sr.next_page_number }}"><span class="page-link">&raquo;</span></a></li>
-                {% else %}
-                  <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
-                {% endif %}
-              </ul>
-            {% endif %}
-        </nav>
-        <!--
-        {% if sr.has_previous %}
-            <a class="" href="?page=1">
-                <<
-            </a>
-
-            <a class="" href="?page={{ sr.previous_page_number }}">
-                <
-            </a>
-
-        {% endif %}
-        {% for num in sr.paginator.page_range %}
-            {% if sr.number == num %}
-                <strong> {{ num }} </strong>
-            {% elif num > sr.number|add:'-3' and  num < sr.number|add:'3' %}
-                {{ num }}
-            {% endif %}
-        {% endfor %}
-
-        {% if sr.has_next %}
-            <a class="" href="?page={{ sr.next_page_number }}">
-                 >>
-            </a>
-
-            <a class="" href="?page={{ sr.paginator.next_page }}">
-                 >
-            </a>
-
-        {% endif %}-->
+        </form>
     </div>
+
+    <div class="container">
+        {% if sr %}
+            <br>
+            <h3 class="text-center"><b>{{ count }} doctor(s)</b> found</h3>
+             <br>
+            {% for result in sr %}
+                 <div class="container border p-3 m-4" style="background: rgb(241,240,246);box-shadow: 5px 13px 8px #888888;">
+                    <div class="row m-1">
+                      <div class="col-sm-2">
+                        <img style="width:50px;height:auto;" src="{{ result.image.url }} " alt="Profile Picture">
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="pl-2 pr-2 pb-2">
+                          <p style="font-size:20px;">
+                                <a href="{% url 'detailed_view' result.registration_number %}">
+                                    <b>Dr. {{ result.name }} </b>
+                                    <span>
+                                        <i class="fa fa-check-square" style="font-size:18px;color:green;margin:1px;padding:0;"> 
+                                            Verified
+                                        </i>
+                                    </span>
+                                </a>
+                            </p>
+                          <p>Specializations in {{ result.Additional_Qualifications_2 }} from {{ result.Additional_Qualifications_2_year_2 }}</p>
+                          <p>Registered in {{ result.Information_year }}</p>
+                          <p>Graduated in {{ result.qualified_year }}</p>
+                            <p><b>{{ result.additional_Qualifications_1 }}</b></p>
+                        </div>
+                      </div>
+                      <div class="col-sm-4 p-2" style="margin:0;padding:0;">
+                        <p><span class="p-3"><i class="fa fa-phone-square" style="font-size:24px;margin:0;padding:0;display:inline"></i></span> {{ result.contact }}</p>
+                        <p><span class="p-2"><i class="fa fa-male" style="font-size:24px;margin:0;padding:0;display:inline"></i>/<i class="fa fa-female" style="font-size:24px;margin:0;padding:0;display:inline"></i></span> {{ result.gender }}</p>
+                        <p><span class="p-3"><i class="fa fa-thumbs-o-up" style="font-size:24px;margin:0;padding:0;display:inline"></i></span> {{ result.ratings }}/5</p>
+                        <p><span class="pl-3 pr-4 pt-3 pb-3"><i class="fa fa-map-marker" style="font-size:24px;margin:0;padding:0;display:inline"></i></span> {{ result.location }}</p>
+                      </div>
+                    </div>
+                 </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</section>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script type="text/javascript">
+    $( function() {
+        $( "#auto" ).autocomplete(
+        {
+            source: '{% url "SearchPage"%}'
+        });
+  } );
+</script>
+
 
 {% endblock %}

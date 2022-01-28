@@ -34,7 +34,6 @@ class Doctor(models.Model):
     qualified_year = models.IntegerField(('year'), choices=list(year_choices()), default=current_year)
     university = models.CharField(max_length=400, null=True)
     max_qualification = models.CharField(max_length=250, null=False, default="M.B.B.S.")
-    ratings = models.FloatField(max_length=1, null=False, default=1)
     image = models.ImageField(upload_to='Doctors/', null=False, max_length=300)
 
     def _str_(self):

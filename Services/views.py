@@ -3,12 +3,18 @@ from .models import Doctor
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.core.paginator import Paginator
+from django.http import JsonResponse
 
 
 def SearchDoctor(request):
     if request.method == 'GET':
         query = request.GET.get('search')
-
+        if 'term' in request.GET:
+            qs = Doctor.objects.filter(name__istartswith=request.GET.get('term'))
+            names = list()
+            for doctor in qs:
+                names.append(doctor.name)
+            return JsonResponse(names, safe=False)
         if query:
             result = Doctor.objects.filter(Q(name__icontains=query) |
                                            Q(location__icontains=query))
@@ -22,15 +28,26 @@ def SearchDoctor(request):
                     'sr': result,
                     'count': count,
                     'page': page,
+                    'query': query,
                 }
                 return render(request, 'SearchDoc.html', context)
             else:
+                context = {
+                    'query': query,
+                }
                 messages.error(request, 'Search Not Found in Records')
+                return render(request, 'SearchDoc.html', context)
         else:
             return redirect('SearchPage')
 
 
 def SearchPage(request):
+    if 'term' in request.GET:
+        qs = Doctor.objects.filter(name__istartswith=request.GET.get('term'))
+        names = list()
+        for doctor in qs:
+            names.append(doctor.name)
+        return JsonResponse(names, safe=False)
     return render(request, 'SearchDoc.html')
 
 
