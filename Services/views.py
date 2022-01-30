@@ -7,6 +7,8 @@ from django.http import JsonResponse
 
 
 def SearchDoctor(request):
+    doctors = Doctor.objects.all()
+
     if request.method == 'GET':
         query = request.GET.get('search')
         if 'term' in request.GET:
@@ -20,20 +22,22 @@ def SearchDoctor(request):
                                            Q(location__icontains=query))
             if result:
                 count = len(result)
-                paginator = Paginator(result, 1)
-                page = request.GET.get('page')
-                result = paginator.get_page(page)
-                page = 2
+                doctor_paginator = Paginator(doctors, 10)
+                page_num = request.GET.get('page')
+                page = doctor_paginator.get_page(page_num)
                 context = {
                     'sr': result,
                     'count': count,
                     'page': page,
                     'query': query,
+                    'doctors': doctors,
                 }
                 return render(request, 'SearchDoc.html', context)
             else:
                 context = {
                     'query': query,
+                    'doctors': doctors,
+                    'page': page,
                 }
                 messages.error(request, 'Search Not Found in Records')
                 return render(request, 'SearchDoc.html', context)
@@ -42,13 +46,22 @@ def SearchDoctor(request):
 
 
 def SearchPage(request):
+    doctors = Doctor.objects.all()
+    doctor_paginator = Paginator(doctors, 10)
+    page_num = request.GET.get('page')
+    page = doctor_paginator.get_page(page_num)
+
     if 'term' in request.GET:
         qs = Doctor.objects.filter(name__istartswith=request.GET.get('term'))
         names = list()
         for doctor in qs:
             names.append(doctor.name)
         return JsonResponse(names, safe=False)
-    return render(request, 'SearchDoc.html')
+    context = {
+        'doctors': doctors,
+        'page': page,
+    }
+    return render(request, 'SearchDoc.html', context)
 
 
 def Detail_view(request, doctor_id):

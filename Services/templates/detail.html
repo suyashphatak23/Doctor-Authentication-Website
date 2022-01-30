@@ -1,20 +1,161 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <title>TrueHealth | Search a Doctor</title>
-    <div class="container">
-        {{ doctor.name }}<br>
-        {{ doctor.location }} <br>
-        {{ doctor.contact }} <br>
-        {{ doctor.gender }} <br>
-        {{ doctor.DOB }} <br>
-        {{ doctor.DOR }} <br>
-        {{ doctor.council }} <br>
-        {{ doctor.fathers_name }} <br>
-        {{ doctor.qualified_year }}<br>
-        {{ doctor.university }}<br>
-        {{ doctor.max_qualification }}<br>
-        {{ doctor.ratings }}<br>
-        <img src="{{ doctor.image.url }}" width="50%" height=auto>
+<title>TrueHealth | Doctor Details</title>
+<style type="text/css">
+    @font-face {
+        font-family: GoogleSans-Regular;
+        src: url('{% static "fonts/ProductSans-Regular.ttf" %}'); 
+    }
+
+    #details{
+        font-family: GoogleSans-Regular, 'Open Sans', sans-serif;
+        margin: 0;
+    }
+
+    #details .container{
+        padding: 32px;
+    }
+
+    #details-heading{
+        font-size: 54px;
+        letter-spacing: -.5px;
+        line-height: 64px;
+        font-family: GoogleSans-Regular;
+        webkit-font-smoothing: antialiased;
+        color: #202124;
+        font-weight: 700;
+        text-rendering: optimizeLegibility;
+        padding: 32px;
+        margin: 15px 0 20px 0;
+    }
+
+    .doctor-image{
+        width: 80%;
+        height: auto;
+        border-radius: 5px;
+    }
+
+    .doctor-image-title{
+        padding: 40px 0;
+        font-size: 28px;
+        text-transform: capitalize;
+    }
+
+    .section{
+        padding: 0 10px;
+        text-align: center;
+    }
+
+    .section-heading{
+        padding-bottom: 40px;
+        text-align: center;
+        font-size: 30px;
+        text-transform: capitalize;
+    }
+
+    .section-info{
+        padding: 0 30px;
+    }
+
+    .section-label{
+        text-transform: uppercase;
+        font-size: 17px;
+    }
+
+    .section-detail{
+        font-size: 23px;
+        padding-bottom: 15px;
+    }
+</style>
+
+<section for="details" id="details">
+
+    <div class="container text-center" id="details-heading">
+        <h1>Profile</h1>
     </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 section">
+                <img src="{{ doctor.image.url }}" class="doctor-image shadow-lg">
+                <h4 class="doctor-image-title">{{ doctor.name }}</h4>
+            </div>
+            <div class="col-md-4 section">
+                <h1 class="section-heading">Personal Details</h1>
+                <div class="section-info">
+                    <label class="section-label">Name</label>
+                    <p class="section-detail">{{ doctor.name }}</p>
+                    <label class="section-label">Location</label>
+                    <p class="section-detail">{{ doctor.location }}</p>
+                    <label class="section-label">Contact</label>
+                    <p class="section-detail">{{ doctor.contact }}</p>
+                    <label class="section-label">Gender</label>
+                    <p class="section-detail">{{ doctor.gender }}</p>
+                    <label class="section-label">Date Of Birth</label>
+                    <p class="section-detail">{{ doctor.DOB }}</p>
+                    <label class="section-label">Father's Name</label>
+                    <p class="section-detail">{{ doctor.fathers_name }}</p>
+                </div>
+            </div>
+            <div class="col-md-4 section">
+                <h1 class="section-heading">Registration Details</h1>
+                <div class="section-info">
+                    <label class="section-label">Date Of Registration</label>
+                    <p class="section-detail">{{ doctor.DOR }}</p>
+                    <label class="section-label">Name of Council</label>
+                    <p class="section-detail">{{ doctor.council }}</p>
+                    <label class="section-label">Licence Year</label>
+                    <p class="section-detail">{{ doctor.qualified_year }}</p>
+                    <label class="section-label">Name Of The University</label>
+                    <p class="section-detail">{{ doctor.university }}</p>
+                    <label class="section-label">Graduation Degree Obtained</label>
+                    <p class="section-detail">{{ doctor.max_qualification }}</p>
+
+                    {% for info in doctor.AdditionalInfo %}
+                    <label class="section-label">Master's Degree Obtained</label>
+                    <p class="section-detail">{{ info.qualification }}</p>
+                    {% endfor %}
+
+                </div>   
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="feedback-form">
+                    <h1>Feedback Form</h1> 
+                    <form>
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                            <label for="floatingTextarea2">Comments</label>
+                        </div>
+                        <input type="submit" name="feedback" class="btn btn-success">
+                    </form>
+                </div>
+                <div class="feedbacks">
+                    <h1>Feedbacks</h1>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="feedback-form">
+                    <h1>Complaint Form</h1> 
+                    <form>
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a complaint here" id="floatingTextarea2" style="height: 100px"></textarea>
+                            <label for="floatingTextarea2">Complaints</label>
+                        </div>
+                        <input type="submit" name="complaint" class="btn btn-danger">
+                    </form>
+                </div>
+                <div class="feedbacks">
+                    <h1>Complaints</h1>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

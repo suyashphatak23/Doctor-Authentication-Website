@@ -3,11 +3,11 @@ from .models import Feedback, Complaint
 
 
 class FeedbackAdmin(admin.ModelAdmin):
-    list_display = ('name', 'feedback', 'ratings', 'publish')
+    list_display = ('doctor', 'feedback')
 
 
 class ComplaintAdmin(admin.ModelAdmin):
-    list_display = ('name', 'reporter', 'complaint', 'date', 'publish')
+    list_display = ('doctor', 'complaint')
 
 
 admin.site.register(Feedback, FeedbackAdmin)

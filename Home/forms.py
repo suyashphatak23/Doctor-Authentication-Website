@@ -5,10 +5,10 @@ from .models import Feedback, Complaint
 class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
-        fields = ['name', 'feedback', 'ratings']
+        fields = ['doctor', 'feedback', 'date']
 
 
 class ComplaintForm(forms.ModelForm):
     class Meta:
         model = Complaint
-        fields = ['name', 'reporter', 'complaint', 'date']
+        fields = ['doctor', 'complaint', 'date']
