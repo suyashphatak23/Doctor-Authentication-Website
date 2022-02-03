@@ -2,41 +2,98 @@
 {% load static %}
 
 {% block content %}
-    <title>TrueHealth | Feedback</title>
+<title>TrueHealth | Feedback</title>
+<style type="text/css">
+    
+    @font-face {
+        font-family: GoogleSans-Regular;
+        src: url('{% static "fonts/ProductSans-Regular.ttf" %}'); 
+    }
 
-    <!-- FEEDBACK -->
+    #feedback .container{
+        padding: 32px 0;
+        font-family: GoogleSans-Regular;
+    }
 
-    <main>
-        <div class="container-fluid">
-            <h1 class="display-2 text-center mb-4 text-success">FEEDBACK AREA</h1><br>
-            <div class="container">
-                <form method="post" enctype="multipart/form-data"> {% csrf_token %}
-                    <div class="input-group input-group-lg">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Name of Doctor </span>
-                        </div>
-                        <input type="text" name="name"  class="form-control" aria-label="Name of Doctor" aria-describedby="inputGroup-sizing-sm" placeholder="Full Name" required>
-                    </div>
-                    <br>
-                    <div class="input-group input-group-lg">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Feedback </span>
-                        </div>
-                        <textarea rows="5" cols="50" name="feedback" class="form-control" placeholder="In maximum 200 words" aria-label="Feedback" required></textarea>
-                    </div>
-                    <br>
-                    <div class="input-group input-group-lg">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-lg">Ratings </span>
-                        </div>
-                        <input type="number" name="ratings" class="form-control" aria-label="Rating" placeholder="Out of 5" aria-describedby="inputGroup-sizing-sm" required >
-                    </div>
-                    <br>
-                    <div class="container text-center">
-                        <input type="submit"  data-toggle="modal" data-target="#myModal" class="btn btn-success btn-lg" value="Submit" name="apply"/>
-                    </div>
-                </form>
+    #feedback-heading {
+        font-size: 54px;
+        letter-spacing: -.5px;
+        line-height: 64px;
+        font-family: GoogleSans-Regular;
+        webkit-font-smoothing: antialiased;
+        color: #202124;
+        font-weight: 700;
+        text-rendering: optimizeLegibility;
+        padding: 32px;
+    }
+
+    .feedback-input{
+        width: 50%;
+        margin: auto;
+    }
+
+    .form-control{
+        border:none;
+        border-bottom: 1px solid black;
+    }
+
+    .btn{
+        margin-bottom: 30px;
+        margin-top: 25px;
+        background: #1a73e8;
+        align-items: center;
+        border: 0;
+        border-radius: 4px;
+        box-sizing: border-box;
+        cursor: pointer;
+        display: inline-flex;
+        height: 44px;
+        -ms-flex-pack: center;
+        justify-content: center;
+        letter-spacing: 0;
+        min-width: 100px;
+        outline: 0;
+        padding: 0 28px;
+        position: relative;
+        text-align: center;
+        transition: .2s;
+        color: #fff;
+    }
+
+    .btn a{
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .btn:hover{
+        background: darkblue;
+        color: #fff;
+    }
+</style>
+<!-- FEEDBACK -->
+
+<section id="feedback">
+    <div class="container text-center" id="feedback-heading">
+        <h1>Feedback</h1>
+    </div>
+
+    <div class="container">
+        <form action="{% url 'feedback' %}" method="POST" enctype="multipart/form-data"> 
+            {% csrf_token %}
+            <div class="feedback-input">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="floatingInput" placeholder="Doctor Registration ID" name="doctor_id" required maxlength="6">
+                  <label for="floatingInput">Doctor Registration ID</label>
+                </div>
+                <div class="form-floating">
+                  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" name="feedback_text" required maxlength="300"></textarea>
+                  <label for="floatingTextarea2">Comments</label>
+                </div>
+                <div class="container text-center">
+                    <input type="submit" name="feedback" value="Submit" class="btn">
+                </div>
             </div>
-        </div>
-    </main>
+        </form>
+    </div>
+</section>
 {% endblock %}

@@ -184,6 +184,74 @@
         background: darkblue;
         color: #fff;
     }
+
+
+    .card {
+        border: none;
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        cursor: pointer
+    }
+
+    .card:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 4px;
+        height: 100%;
+        background-color: #E1BEE7;
+        transform: scaleY(1);
+        transition: all 0.5s;
+        transform-origin: bottom
+    }
+
+    .card:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 4px;
+        height: 100%;
+        background-color: #8E24AA;
+        transform: scaleY(0);
+        transition: all 0.5s;
+        transform-origin: bottom
+    }
+
+    .card:hover::after {
+        transform: scaleY(1)
+    }
+
+    .fonts {
+        font-size: 18px;
+        margin-bottom: 0;
+    }
+
+    .buttons a{
+        color: #8E24AA;
+        background: #fff;
+        margin-top: 30px;
+    }
+
+    .buttons a:nth-child(1) {
+        border: 1px solid #8E24AA !important;
+        color: #8E24AA;
+        height: 40px
+    }
+
+    .buttons a:nth-child(1):hover {
+        border: 1px solid #8E24AA !important;
+        color: #fff;
+        height: 40px;
+        background-color: #8E24AA
+    }
+
+    .profile{
+        font-family: GoogleSans-Regular, sans-serif;
+    }
+
 </style>
 
 
@@ -211,42 +279,39 @@
         </form>
     </div>
 
+
     {% if sr %}
-    <div class="container">
-        <br>
-        <h3 class="text-center"><b>{{ count }} Doctor(s)</b> Found</h3>
-         <br>
-        {% for result in sr %}
-             <div class="container border p-3 m-4" style="background: rgb(241,240,246);box-shadow: 5px 13px 8px #888888;">
-                <div class="row m-1">
-                  <div class="col-sm-2">
-                    <img style="width:50px;height:auto;" src="{{ result.image.url }} " alt="Profile Picture">
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="pl-2 pr-2 pb-2">
-                      <p style="font-size:20px;">
-                            <a href="{% url 'detailed_view' result.registration_number %}">
-                                <b>Dr. {{ result.name }} </b>
-                                <span>
-                                    <i class="fa fa-check-square" style="font-size:18px;color:green;margin:1px;padding:0;"> 
-                                        Verified
-                                    </i>
-                                </span>
-                            </a>
-                        </p>
-                      <p>Specializations in {{ result.Additional_Qualifications_2 }} from {{ result.Additional_Qualifications_2_year_2 }}</p>
-                      <p>Registered in {{ result.Information_year }}</p>
-                      <p>Graduated in {{ result.qualified_year }}</p>
-                        <p><b>{{ result.additional_Qualifications_1 }}</b></p>
+
+    <div class="container text-center" id="search-heading">
+        <h1 style="font-size:36px;">{{ count }} Doctor(s) Found</h1>
+    </div>
+
+    <div class="container mt-5 profile">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-5">
+                {% for result in sr %}
+                <div class="card p-3 py-4 shadow-lg" style="margin-top: 10px;margin-bottom: 5em;">
+                    <div class="text-center"> 
+                        <img src="{{ result.image.url }}" width="60%" height="auto" class="rounded-circle" alt="Profile Picture"> 
                     </div>
-                  </div>
-                  <div class="col-sm-4 p-2" style="margin:0;padding:0;">
-                    <p><span class="p-3"><i class="fa fa-phone-square" style="font-size:24px;margin:0;padding:0;display:inline"></i></span> {{ result.contact }}</p>
-                    <p><span class="p-2"><i class="fa fa-male" style="font-size:24px;margin:0;padding:0;display:inline"></i>/<i class="fa fa-female" style="font-size:24px;margin:0;padding:0;display:inline"></i></span> {{ result.gender }}</p>
-                  </div>
+                    <div class="text-center mt-3"> 
+                        <span class="bg-secondary p-1 px-4 rounded text-white" style="font-size:20px;text-transform: uppercase;">
+                            {{ result.max_qualification }}
+                        </span>
+                        <h3 class="mt-2 mb-0" style="font-size: 32px;">Dr. {{ result.name }}</h5> <span style="font-size:22px;">ID: {{ result.registration_number }}</span>
+                        <div class="px-4 mt-4">
+                            <p class="fonts"><i>Council</i> : {{ result.council }}</p>
+                            <p class="fonts"><i>University</i> : {{ result.university }}</p>
+                            <p class="fonts"><i>Passing Year</i> : {{ result.qualified_year }}</p>
+                        </div>
+                        <div class="buttons">  
+                            <a href="{% url 'detailed_view' result.registration_number %}" class="btn btn-primary px-4 ms-3">View Profile</a> 
+                        </div>
+                    </div>
                 </div>
-             </div>
-        {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
     </div>
     {% endif %}
 
@@ -254,39 +319,34 @@
         <h1>All Records of Doctors</h1>
     </div>
 
-
     <div class="container">
-    {% for doctor in page.object_list %}
-         <div class="container border p-3 m-4" style="background: rgb(241,240,246);box-shadow: 5px 13px 8px #888888;">
-            <div class="row m-1">
-              <div class="col-sm-2">
-                <img style="width:50px;height:auto;" src="{{ doctor.image.url }} " alt="Profile Picture">
-              </div>
-              <div class="col-sm-6">
-                <div class="pl-2 pr-2 pb-2">
-                  <p style="font-size:20px;">
-                        <a href="{% url 'detailed_view' doctor.registration_number %}">
-                            <b>Dr. {{ doctor.name }} </b>
-                            <span>
-                                <i class="fa fa-check-square" style="font-size:18px;color:green;margin:1px;padding:0;"> 
-                                    Verified
-                                </i>
+        <div class="container mt-5 profile">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-5">
+                    {% for doctor in page.object_list %}
+                    <div class="card p-3 py-4 shadow-lg" style="margin-top: 10px;margin-bottom: 5em;">
+                        <div class="text-center"> 
+                            <img src="{{ doctor.image.url }}" width="60%" height="auto" class="rounded-circle" alt="Profile Picture"> 
+                        </div>
+                        <div class="text-center mt-3"> 
+                            <span class="bg-secondary p-1 px-4 rounded text-white" style="font-size:20px;text-transform: uppercase;">
+                                {{ doctor.max_qualification }}
                             </span>
-                        </a>
-                    </p>
-                  <p>Specializations in {{ doctor.Additional_Qualifications_2 }} from {{ doctor.Additional_Qualifications_2_year_2 }}</p>
-                  <p>Registered in {{ doctor.Information_year }}</p>
-                  <p>Graduated in {{ doctor.qualified_year }}</p>
-                    <p><b>{{ doctor.additional_Qualifications_1 }}</b></p>
+                            <h3 class="mt-2 mb-0" style="font-size: 32px;">Dr. {{ doctor.name }}</h5> <span style="font-size:22px;">ID: {{ doctor.registration_number }}</span>
+                            <div class="px-4 mt-4">
+                                <p class="fonts"><i>Council</i> : {{ doctor.council }}</p>
+                                <p class="fonts"><i>University</i> : {{ doctor.university }}</p>
+                                <p class="fonts"><i>Passing Year</i> : {{ doctor.qualified_year }}</p>
+                            </div>
+                            <div class="buttons">  
+                                <a href="{% url 'detailed_view' doctor.registration_number %}" class="btn btn-primary px-4 ms-3">View Profile</a> 
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
                 </div>
-              </div>
-              <div class="col-sm-4 p-2" style="margin:0;padding:0;">
-                <p><span class="p-3"><i class="fa fa-phone-square" style="font-size:24px;margin:0;padding:0;display:inline"></i></span> {{ doctor.contact }}</p>
-                <p><span class="p-2"><i class="fa fa-male" style="font-size:24px;margin:0;padding:0;display:inline"></i>/<i class="fa fa-female" style="font-size:24px;margin:0;padding:0;display:inline"></i></span> {{ doctor.gender }}</p>
-              </div>
             </div>
-         </div>
-    {% endfor %}
+        </div>
     </div>
 
     <div class="container text-center">
