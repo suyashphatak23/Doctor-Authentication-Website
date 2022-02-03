@@ -1,9 +1,11 @@
 from django.db.models import Q
-from .models import Doctor
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.http import JsonResponse
+from .models import Doctor
+from Home.models import Feedback, Complaint
+from datetime import datetime
 
 
 def SearchDoctor(request):
@@ -65,7 +67,24 @@ def SearchPage(request):
 
 
 def Detail_view(request, doctor_id):
+    if request.method == 'POST':
+        if request.POST.get('feedback'):
+            text = request.POST['feedback_text']
+            feedback = Feedback.objects.create(doctor_id=doctor_id, feedback=text, datetime=datetime.now())
+            feedback.save()
+            return redirect('SearchPage')
+
+        if request.POST.get('complaint'):
+            text = request.POST['complaint_text']
+            complaint = Complaint.objects.create(doctor_id=doctor_id, complaint=text, datetime=datetime.now())
+            complaint.save()
+            return redirect('SearchPage')
+
+    feedbacks = Feedback.objects.filter(doctor_id=doctor_id)
+    complaints = Complaint.objects.filter(doctor_id=doctor_id)
     context = {
         'doctor': Doctor.objects.get(registration_number=doctor_id),
+        'feedbacks': feedbacks,
+        'complaints': complaints,
     }
     return render(request, 'detail.html', context)

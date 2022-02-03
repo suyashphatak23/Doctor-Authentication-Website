@@ -67,6 +67,60 @@
         font-size: 23px;
         padding-bottom: 15px;
     }
+
+    .map-container{
+        padding:0 30px;
+        margin-top: 40px;
+    }
+
+    .map{
+        width: 1000px;
+        height: 500px;
+        border-radius: 5px;
+    }
+
+    .btn{
+        margin-bottom: 30px;
+        margin-top: 25px;
+        background: #1a73e8;
+        align-items: center;
+        border: 0;
+        border-radius: 4px;
+        box-sizing: border-box;
+        cursor: pointer;
+        display: inline-flex;
+        height: 44px;
+        -ms-flex-pack: center;
+        justify-content: center;
+        letter-spacing: 0;
+        min-width: 100px;
+        outline: 0;
+        padding: 0 28px;
+        position: relative;
+        text-align: center;
+        transition: .2s;
+        color: #fff;
+    }
+
+    .btn a{
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .btn:hover{
+        background: darkblue;
+        color: #fff;
+    }
+
+    .feedbacks{
+        padding: 32px 0;
+        text-align: center;
+    }
+
+    .feedbacks-feedback{
+        width: 80%;
+        margin: auto;
+    }
 </style>
 
 <section for="details" id="details">
@@ -86,8 +140,6 @@
                 <div class="section-info">
                     <label class="section-label">Name</label>
                     <p class="section-detail">{{ doctor.name }}</p>
-                    <label class="section-label">Location</label>
-                    <p class="section-detail">{{ doctor.location }}</p>
                     <label class="section-label">Contact</label>
                     <p class="section-detail">{{ doctor.contact }}</p>
                     <label class="section-label">Gender</label>
@@ -122,37 +174,78 @@
         </div>
     </div>
 
+    <div class="container text-center" id="details-heading">
+        <h1>Location</h1>
+        <div class="map-container">
+            <iframe src="{{ doctor.location }}" class="shadow-lg map" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <div class="feedback-form">
-                    <h1>Feedback Form</h1> 
-                    <form>
-                        <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <h1 class="section-heading">Feedback Form</h1> 
+                    <form action="{% url 'detailed_view' doctor.registration_number %}" method="POST">{% csrf_token %}
+                        <div class="form-floating" style="width:500px;margin:auto;">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" name="feedback_text" style="height: 100px"
+                            maxlength="300"></textarea>
                             <label for="floatingTextarea2">Comments</label>
                         </div>
-                        <input type="submit" name="feedback" class="btn btn-success">
+                        <div class="text-center">
+                            <input type="submit" name="feedback" value="Submit" class="btn">
+                        </div>
                     </form>
                 </div>
                 <div class="feedbacks">
                     <h1>Feedbacks</h1>
+                    {% for n_feedback in feedbacks %}
+                    <div class="feedbacks-feedback">
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-success shadow"
+                                style="padding:16px;margin: 20px 0;">
+                                {{ n_feedback.feedback }}<br>
+                                {{ n_feedback.datetime }}
+                            </li>
+                        </ul>
+                    </div>
+                    {% empty %}
+                        <h5 class="text-center" style="padding:32px;">
+                            No Feedbacks.
+                        </h5>
+                    {% endfor %}
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="feedback-form">
-                    <h1>Complaint Form</h1> 
-                    <form>
-                        <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave a complaint here" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <h1 class="section-heading">Complaint Form</h1> 
+                    <form action="{% url 'detailed_view' doctor.registration_number %}" method="POST">{% csrf_token %}
+                        <div class="form-floating" style="width:500px;margin:auto;">
+                            <textarea class="form-control" placeholder="Leave a complaint here" id="floatingTextarea2" name="complaint_text" style="height: 100px;" maxlength="300"></textarea>
                             <label for="floatingTextarea2">Complaints</label>
                         </div>
-                        <input type="submit" name="complaint" class="btn btn-danger">
+                        <div class="text-center">
+                            <input type="submit" name="complaint" value="Submit" class="btn">
+                        </div>
                     </form>
                 </div>
                 <div class="feedbacks">
                     <h1>Complaints</h1>
-                    
+                    {% for n_complaint in complaints %}
+                    <div class="feedbacks-feedback">
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-warning shadow"
+                                style="padding:16px;margin: 20px 0;">
+                                {{ n_complaint.complaint }}<br>
+                                {{ n_complaint.datetime }}
+                            </li>
+                        </ul>
+                    </div>
+                    {% empty %}
+                        <h5 class="text-center" style="padding:32px;">
+                            No Complaints.
+                        </h5>
+                    {% endfor %}
                 </div>
             </div>
         </div>
