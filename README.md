@@ -1,60 +1,54 @@
-<a href="https://python.org"><img src="https://www.python.org/static/community_logos/python-logo-master-v3-TM.png" title="Python" width="500px" height=auto alt="Python"></a>
+<img src="https://logos-world.net/wp-content/uploads/2021/10/Python-Logo-700x394.png" title="Python" style="width:50%; height:auto" alt="Python logo">
 
-<a href="https://www.w3.org/wiki/The_web_standards_model_-_HTML_CSS_and_JavaScript" target="_blank" >
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/120px-HTML5_logo_and_wordmark.svg.png"  width="200px" height=auto /> 
-</a>
+<img src="https://www.djangoproject.com/m/img/logos/django-logo-negative.png" title="Django" style="width:50%; height:auto" alt="Django logo">
 
-<a href="https://www.w3.org/wiki/The_web_standards_model_-_HTML_CSS_and_JavaScript" target="_blank" >
-    <img src="https://media2.giphy.com/media/fsEaZldNC8A1PJ3mwp/source.gif"  height="65" />
-</a>
+<img src="https://www.freepnglogos.com/uploads/html5-logo-png/html5-logo-devextreme-multi-purpose-controls-html-javascript-3.png" title="Frontend" style="width:50%; height:auto" alt="HTML CSS JS logos">
 
-  <a href="https://www.w3.org/wiki/The_web_standards_model_-_HTML_CSS_and_JavaScript" target="_blank" >
-    <img src="https://media3.giphy.com/media/ln7z2eWriiQAllfVcn/source.gif"  height="75" />
-  </a>
+<img src="https://openjsf.org/wp-content/uploads/sites/84/2019/10/jquery-logo-vertical_large_square.png" title="jQuery" style="width:30%; height:auto" alt="jQuery logos">
 
-  <a href="https://getbootstrap.com/" target="_blank" >
-    <img src="https://miro.medium.com/max/512/1*6fzxZyDPD_8RRsmHpQr-vw.gif" height="70" />
-  </a>
+<img src="https://miro.medium.com/max/824/1*9RqBEDU9Mbg6XM8O6d7Q9A.png" title="Bootstrap" style="width:40%; height:auto" alt="Bootstrap logo">
 
-  <a href="https://www.djangoproject.com/" target="_blank" >
-    <img src="https://static.djangoproject.com/img/logos/django-logo-negative.png" height="70" />
-  </a>  
-# Imdb-Rating-Scraper
+# TrueHealth : A Healthcare Website
 
-In this code, I have Scraped 250 Top Rated Movies, TV Shows & Oscar Wining Movies.
+**Problem Statement**: We are left with no option to believe on the degrees displayed in the clinics of the physician treating us because of unavailability of information. In hospital, there are no degrees on display of physicians available in such hospital. We should be vigilant about the skills of physicians before handing over our life in their hands.
+
+**Solution**: The goal isto provide authentic information about qualificationof the physician before availing treatment from thephysician as well as protect patients from bogus physicians.
 
 [![Build Status](http://img.shields.io/travis/badges/badgerbadgerbadger.svg?style=flat-square)](https://travis-ci.org/badges/badgerbadgerbadger)
 [![Coverage Status](http://img.shields.io/coveralls/badges/badgerbadgerbadger.svg?style=flat-square)](https://coveralls.io/r/badges/badgerbadgerbadger)
 
-# Output Graphs
+# Demo Video
+[YouTube Link](https://www.google.com)
 
-### 1. Top Rated 250 Movies
-<img src="https://github.com/suyashphatak23/Imdb-Rating-Scraper/blob/master/outputs/Movies.JPG" title="Movies" width="1000px" height="1000px" alt="Top Rated Movies">
+# Features
 
-### 2. Top Rated 250 TV Shows
+## Search
+We can search for doctors using search box. I have used jquery autocomplete which will help the user to search with that name.
 
-<img src="https://github.com/suyashphatak23/Imdb-Rating-Scraper/blob/master/outputs/TV.JPG" title="TV Shows" width="1200px" height="1000px" alt="TV Shows">
+## Feedback and Complaint
+User can give feedback as well as complaint for doctors which they visit. 
 
-### 3. Oscar Winning Movies
-
-<img src="https://github.com/suyashphatak23/Imdb-Rating-Scraper/blob/master/outputs/Oscar.JPG" title="Oscar Wining Movies" width="1200px" height="1000px" alt="Oscar Movies">
-
+## Contact 
+User can contact admin for any feedback or complaints regarding website or any other reason using the contact form.
 
 # Clone
 
-***Clone this repo to your local machine using*** **https://github.com/suyashphatak23/Imdb-Rating-Scrape**
+***Clone this repo to your local machine using*** **https://github.com/suyashphatak23/Doctor-Authentication-Website**
 
 # Setup
 
 1. > Open **Command Prompt**
 
-2. > Install **beautifulsoup 4** python-libray in your local machine by using following commands:
+2. > Install **django** python-libray in your local machine by using following commands:
 
 ```shell
-> pip install beautifulsoup4
+> pip install django
+> pip install pillow
+> pip install mysql
+> pip install razorpay
 ```
 
-3. > Run the code in **python3 shell**
+3. > Run the code in command prompt using **python manage.py runserver**
 
 
 # License
