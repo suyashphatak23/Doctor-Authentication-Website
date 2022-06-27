@@ -31,6 +31,9 @@ User can give feedback as well as complaint for doctors which they visit.
 ## Contact 
 User can contact admin for any feedback or complaints regarding website or any other reason using the contact form.
 
+## Admin
+In admin panel, for Doctor's location we can add the source link from embeded google map link from google maps so that will show the location of the clinic or hospital.
+
 # Clone
 
 ***Clone this repo to your local machine using*** **https://github.com/suyashphatak23/Doctor-Authentication-Website**
