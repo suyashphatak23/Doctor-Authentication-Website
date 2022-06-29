@@ -48,7 +48,6 @@ In admin panel, for Doctor's location we can add the source link from embeded go
 > pip install django
 > pip install pillow
 > pip install mysql
-> pip install razorpay
 ```
 
 3. > Run the code in command prompt using **python manage.py runserver**
