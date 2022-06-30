@@ -40,6 +40,8 @@ In admin panel, for Doctor's location we can add the source link from embeded go
 
 # Setup
 
+Refer the link: https://realpython.com/django-setup/
+
 1. > Open **Command Prompt**
 
 2. > Install **django** python-libray in your local machine by using following commands:
