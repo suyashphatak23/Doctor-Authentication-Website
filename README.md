@@ -42,17 +42,28 @@ In admin panel, for Doctor's location we can add the source link from embeded go
 
 Refer the link: https://realpython.com/django-setup/
 
-1. > Open **Command Prompt**
-
-2. > Install **django** python-libray in your local machine by using following commands:
+1. > Install **Python and PIP**
+2. > Open **Command Prompt**
+3. > Install **django** python-libray in your local machine by using following commands:
 
 ```shell
 > pip install django
-> pip install pillow
-> pip install mysql
 ```
 
-3. > Run the code in command prompt using **python manage.py runserver**
+4. > Install **pillow** python-libray in local machine by using following commands:
+
+```shell
+> pip install pillow
+```
+
+5. > Go to Project directory and open **Command Prompt** with the directory location.
+
+6. >Type
+```shell
+> python manage.py runserver
+```
+
+7. This will give you link to the server. Click it to go to website.
 
 
 # License
