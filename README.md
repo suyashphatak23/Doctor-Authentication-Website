@@ -20,6 +20,9 @@
 # Demo Video
 [YouTube Link](https://youtu.be/l0QzaaI3IpI)
 
+# Deployment Link
+[Heroku Deployment](https://truehealth.herokuapp.com/)
+
 # Features
 
 ## Search
