@@ -1,7 +1,8 @@
 import os
+from pathlib import Path
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '3adk$jdadlyn4)yw+(a20jbjamhrn1=s8p4yo+f3xig%-$k@vlq!'
@@ -67,7 +68,7 @@ WSGI_APPLICATION = 'Truehealth.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': "F:\Projects\Python\Doctor-Authentication-Website" + 'TrueHealthdb.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
