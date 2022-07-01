@@ -49,21 +49,27 @@ def SearchDoctor(request):
 
 def SearchPage(request):
     doctors = Doctor.objects.all()
-    doctor_paginator = Paginator(doctors, 10)
-    page_num = request.GET.get('page')
-    page = doctor_paginator.get_page(page_num)
+    if len(doctors) < 10:
+        context = {
+            'doctors': doctors,
+        }
+        return render(request, 'SearchDoc.html', context)
+    else:
+        doctor_paginator = Paginator(doctors, 10)
+        page_num = request.GET.get('page')
+        page = doctor_paginator.get_page(page_num)
 
-    if 'term' in request.GET:
-        qs = Doctor.objects.filter(name__istartswith=request.GET.get('term'))
-        names = list()
-        for doctor in qs:
-            names.append(doctor.name)
-        return JsonResponse(names, safe=False)
-    context = {
-        'doctors': doctors,
-        'page': page,
-    }
-    return render(request, 'SearchDoc.html', context)
+        if 'term' in request.GET:
+            qs = Doctor.objects.filter(name__istartswith=request.GET.get('term'))
+            names = list()
+            for doctor in qs:
+                names.append(doctor.name)
+            return JsonResponse(names, safe=False)
+        context = {
+            'doctors': doctors,
+            'page': page,
+        }
+        return render(request, 'SearchDoc.html', context)
 
 
 def Detail_view(request, doctor_id):
