@@ -9,7 +9,7 @@ SECRET_KEY = '3adk$jdadlyn4)yw+(a20jbjamhrn1=s8p4yo+f3xig%-$k@vlq!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["truehealth.herokuapp.com"]
+ALLOWED_HOSTS = ["truehealth.herokuapp.com", '127.0.0.1']
 
 # Application definition
 
